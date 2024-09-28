@@ -37,11 +37,21 @@ square(5) */
 multiplicationtaable(); */
 
 
-function square(size) {
-    for(let i = 0; i < size; i++) {
-        let row = "";
-        for (let k = 0; k < size; k++) {
-            row += "# ";
-        }
-        console.log(row);
-    } 
+
+/* let respuesta = confirm("¿Te gusta JavaScript?")
+console.log(respuesta) */
+
+/* for (let i = 5; i >= 0; i--) {
+    if (i === 0) {
+        console.log("stop")
+    } else {
+        console.log('#'.repeat(i));
+    }
+}
+
+for (let i = 1; i <= 5; i++) {
+    console.log('*'.repeat(i))
+} */
+/* for (let i = 0, j = 1; i < 5; i++, j++) {
+  console.log('#'.repeat(i)  +  '#'.repeat(j));
+} */
