@@ -81,32 +81,14 @@ function bucleinfinito() {
 bucleinfinito(); */
 
 
+// Imprimir rombo
 
-function studentgrade () {
-    let marks = [80, 77, 88, 95, 68];
-    let name = [David, Vinoth, Divya, Ishitha, Thomas];
+/* for(let i = 1; i <= 5; i++) {
+    console.log(' '.repeat(5-i) + '*'.repeat(i * 2 - 1));}
+    for (let k = 4; k >= 1; k--) {
+        console.log(' '.repeat(5 - k) + '*'.repeat(k * 2 - 1 ));
+    } */
 
-    let totalmarks = marks.reduce((acc, marks) => acc + marks, 0);
-    let average = totalmarks / length.marks
-
-    let grade;
-
-    if (average < 60) {
-        grade = 'Grade F';
-    } else if (average < 70) {
-        grade = 'Grade D'
-    } else if (average < 80) {
-        grade = 'Grade C'
-    } else if (average < 90) {
-        grade = 'Grade B'
-    } else {
-        grade = 'Grade A'
-    }
-}
-
-// Output the average and corresponding grade
-    console.log(`Average Marks: ${average.toFixed(2)}`);
-    console.log(`Grade: ${grade}`);
+ // 12. Write a JavaScript program to sum 3 and 5 multiples under 1000.
 
 
-studentgrade()r

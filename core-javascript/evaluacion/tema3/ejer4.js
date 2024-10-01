@@ -24,8 +24,7 @@ if (isNaN(diameter) || isNaN(grosor)) {
 
 
 // 2. Write a JavaScript conditional statement to find the sign of the product of three numbers. Display an alert box with the specified sign.
-// ample numbers : 3, -7, 2
-// Output : The sign is -
+// ample numbers : 3, -7, 2.   Output : The sign is -
 
 function product(num1, num2, num3) {
     if (num1 === 0 || num2 === 0 || num3 === 0) {
@@ -56,10 +55,7 @@ product(0,-5,1);
 
 
 // 5. Write a JavaScript for loop that iterates from 0 to 15. For each iteration, it checks if the current number is odd or even, and displays a message on the screen.
-// Sample Output :
-//"0 is even"
-//"1 is odd"
-//"2 is even"
+// Sample Output : "0 is even", "1 is odd", "2 is even"
 
 for (let i = 0; i <= 15; i++) {
     if(i %2 == 0) {
@@ -91,3 +87,58 @@ class Rueda {
 }
 
 new Rueda().validar();
+
+
+// 6. Write a JavaScript program that computes the average marks of the following students. Then, this average is used to determine the corresponding grade.
+
+function studentgrade() {
+    let marks = [80, 77, 88, 95, 68];
+    let names = ['David', 'Vinoth', 'Divya', 'Ishitha', 'Thomas']; 
+
+    let totalMarks = marks.reduce((acc, mark) => acc + mark, 0);
+    let average = totalMarks / marks.length; 
+
+    let grade;
+
+    // Determine grade based on average
+    if (average < 60) {
+        grade = 'Grade F';
+    } else if (average < 70) {
+        grade = 'Grade D';
+    } else if (average < 80) {
+        grade = 'Grade C';
+    } else if (average < 90) {
+        grade = 'Grade B';
+    } else {
+        grade = 'Grade A';
+    }
+
+    // Output the average and corresponding grade
+    console.log(`Average Marks: ${average.toFixed(2)}`);
+    console.log(`Grade: ${grade}`);
+}
+
+// Call the function 
+studentgrade();
+
+
+// 7. Write a JavaScript program that iterates integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for multiples of five print "Buzz".
+// For numbers multiples of both three and five print "FizzBuzz".
+
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+
+// 10. Write a JavaScript program to construct the following pattern, using a nested for loop.
+for (let i = 1; i <= 5; i++) {
+        console.log('*'.repeat(i))
+    }
+

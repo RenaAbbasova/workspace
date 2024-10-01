@@ -144,7 +144,7 @@ if (isNaN(diameter) || isNaN(grosor)) {
 }; */
 
 
-class Rueda {
+/* class Rueda {
     constructor() {
         this.diameter = parseFloat(prompt("Introduce el diámetro de la rueda en metros:"));
         this.grosor = parseFloat(prompt("Introduce el grosor de la rueda en metros:"));
@@ -165,3 +165,5 @@ class Rueda {
 }
 
 new Rueda().validar();
+ */
+
