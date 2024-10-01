@@ -1,27 +1,13 @@
-// Pedir al usuario el diámetro y grosor de la rueda
-let diameter = parseFloat(prompt("Introduce el diámetro de la rueda en metros:"));
-let grosor = parseFloat(prompt("Introduce el grosor de la rueda en metros:"));
 
-// validar si los datos son válidos
-if (isNaN(diameter) || isNaN(grosor)) {
-    console.log("Por favor, introduce valores numéricos validos.")
-} else { 
-    // Condición para el diámetro de la rueda
-    if (diameter > 1.4) {
-        console.log("La rueda es para un vehículo grande");
-    } else if (diameter <= 1.4 && diameter > 0.8) {
-        console.log("La rueda es para un vehículo mediano");
+//1. Write a JavaScript program that displays the largest integer among two integers.
+
+function largestInteger(num1, num2) {
+    if (num1 > num2) {
+        console.log(num1);
     } else {
-        console.log("La rueda es para un vehículo pequeño");
-    }; 
-
-    // Condiciones para el grosor
-    if ((diameter > 1.4 && grosor < 0.4) || (diameter <= 1.4 && diameter > 0.8 && grosor < 0.25)) {
-    console.log("El grosor para esta rueda es inferior al recomendado");
+        console.log(num2);
     }
-};
-
-
+}
 
 // 2. Write a JavaScript conditional statement to find the sign of the product of three numbers. Display an alert box with the specified sign.
 // ample numbers : 3, -7, 2.   Output : The sign is -
@@ -54,6 +40,25 @@ product(0, 0, 0);
 product(0,-5,1);
 
 
+// 3. Write a JavaScript conditional statement to sort three numbers. Display an alert box to show the results. Sample numbers : 0, -1, 4. Output : 4, 0, -1
+
+function descending(num1, num2, num3) {
+
+    let numbers = [num1, num2, num3];
+    
+    // Sort numbers in descending order
+    numbers.sort(function(a, b) {
+        return b - a;
+    });
+
+    alert(numbers.join(', '));
+}
+
+descending(0, -1, 4);
+descending(1,-3,0);
+descending(8,-8,10);
+
+
 // 5. Write a JavaScript for loop that iterates from 0 to 15. For each iteration, it checks if the current number is odd or even, and displays a message on the screen.
 // Sample Output : "0 is even", "1 is odd", "2 is even"
 
@@ -66,27 +71,7 @@ for (let i = 0; i <= 15; i++) {
     }
 }
 
-class Rueda {
-    constructor() {
-        this.diameter = parseFloat(prompt("Introduce el diámetro de la rueda en metros:"));
-        this.grosor = parseFloat(prompt("Introduce el grosor de la rueda en metros:"));
-    }
 
-    validar() {
-        if (isNaN(this.diameter) || isNaN(this.grosor)) return console.log("Introduce valores numéricos válidos.");
-        
-        console.log(this.diameter > 1.4 ? "Vehículo grande" :
-                    this.diameter > 0.8 ? "Vehículo mediano" :
-                    "Vehículo pequeño");
-
-        if ((this.diameter > 1.4 && this.grosor < 0.4) || 
-            (this.diameter <= 1.4 && this.diameter > 0.8 && this.grosor < 0.25)) {
-            console.log("Grosor inferior al recomendado");
-        }
-    }
-}
-
-new Rueda().validar();
 
 
 // 6. Write a JavaScript program that computes the average marks of the following students. Then, this average is used to determine the corresponding grade.
@@ -118,7 +103,6 @@ function studentgrade() {
     console.log(`Grade: ${grade}`);
 }
 
-// Call the function 
 studentgrade();
 
 
@@ -137,8 +121,56 @@ for (let i = 1; i <= 100; i++) {
     }
 }
 
+
+// 9. Write a JavaScript program to find the Armstrong numbers of 3 digits.
+// Note : An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself. For example, 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371.
+
+function findthreedigitarmstrongnum() {
+    const armstrongNum = []; 
+
+    // Loop through all three-digit numbers
+    for (let num = 100; num < 1000; num++) {
+        let sum = 0; 
+        let numStr = num.toString(); 
+
+        // Loop through each digit in the number
+        for (let i = 0; i < numStr.length; i++) { 
+            let digit = parseInt(numStr[i]); 
+            sum += digit ** 3; 
+        }
+
+        // Check if the sum of the cubes of the digits is equal to the original number
+        if (sum === num) {
+            armstrongNum.push(num); 
+        }
+    }
+
+    
+    console.log("print armstrong numbers:", armstrongNum);
+}
+
+findthreedigitarmstrongnum();
+
+
 // 10. Write a JavaScript program to construct the following pattern, using a nested for loop.
 for (let i = 1; i <= 5; i++) {
         console.log('*'.repeat(i))
     }
+
+// 12. Write a JavaScript program to sum 3 and 5 multiples under 1000.
+
+function sumMultiplesFiveAndThree() {
+    let sum = 0; 
+
+    for (let i = 1; i < 1000; i++) { 
+
+        if (i % 3 === 0 || i % 5 === 0) {
+            sum += i;
+        }
+    }
+
+    console.log('sum of 3 and 5 multiples under 1000', sum);
+}
+
+sumMultiplesFiveAndThree();
 
