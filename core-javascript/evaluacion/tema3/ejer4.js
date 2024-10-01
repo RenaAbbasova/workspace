@@ -70,3 +70,24 @@ for (let i = 0; i <= 15; i++) {
     }
 }
 
+class Rueda {
+    constructor() {
+        this.diameter = parseFloat(prompt("Introduce el diámetro de la rueda en metros:"));
+        this.grosor = parseFloat(prompt("Introduce el grosor de la rueda en metros:"));
+    }
+
+    validar() {
+        if (isNaN(this.diameter) || isNaN(this.grosor)) return console.log("Introduce valores numéricos válidos.");
+        
+        console.log(this.diameter > 1.4 ? "Vehículo grande" :
+                    this.diameter > 0.8 ? "Vehículo mediano" :
+                    "Vehículo pequeño");
+
+        if ((this.diameter > 1.4 && this.grosor < 0.4) || 
+            (this.diameter <= 1.4 && this.diameter > 0.8 && this.grosor < 0.25)) {
+            console.log("Grosor inferior al recomendado");
+        }
+    }
+}
+
+new Rueda().validar();
