@@ -116,7 +116,7 @@ while (count = 5) {
 
 } */
 
-
+/* 
 // Pedir al usuario el diámetro y grosor de la rueda
 let diameter = parseFloat(prompt("Introduce el diámetro de la rueda en metros:"));
 let grosor = parseFloat(prompt("Introduce el grosor de la rueda en metros:"));
@@ -138,4 +138,7 @@ if (isNaN(diameter) || isNaN(grosor)) {
     if ((diameter > 1.4 && grosor < 0.4) || (diameter <= 1.4 && diameter > 0.8 && grosor < 0.25)) {
     console.log("El grosor para esta rueda es inferior al recomendado");
     }
-};
+}; */
+
+
+
