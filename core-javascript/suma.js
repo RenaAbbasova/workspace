@@ -1,4 +1,4 @@
-// suma.js
+/* // suma.js
 function suma(a, b) {
     return a + b;
 }
@@ -33,3 +33,4 @@ function fetchdata(callback) {
 
 
  // mock function
+ */

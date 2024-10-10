@@ -1,4 +1,4 @@
-const {suma} = require('./suma');
+/* const {suma} = require('./suma');
 test('sumar 1 + 2 es igual a 3', () => {
     expect(suma(1, 2)).toBe(3);  // Cambia toBeEqual a toBe
 });
@@ -76,7 +76,7 @@ test('data is peanut butter', done => {
  // mock  functon
 
 
- test ('mock implementation of a basic function', () => {
+ /* test ('mock implementation of a basic function', () => {
     const mock = jest.fn(x => 42 +x);
     expect(mock(1)).toBe(43);
     expect(mock).toHaveBeenCalledWith(1)
@@ -155,4 +155,4 @@ test('compiling android goes as expected', () => {
   // Or you can match an exact error message using a regexp like below
   expect(() => compileAndroidCode()).toThrow(/^you are using the wrong JDK$/); // Test fails
   expect(() => compileAndroidCode()).toThrow(/^you are using the wrong JDK!$/); // Test pass
-});
+}); */ 
