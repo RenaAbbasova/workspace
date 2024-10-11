@@ -14,9 +14,7 @@ function fizzBuzz(number) {
         return number.toString();
     }
 }
-console.log(fizzBuzz(0))
 
 module.exports = fizzBuzz;
-
 
 

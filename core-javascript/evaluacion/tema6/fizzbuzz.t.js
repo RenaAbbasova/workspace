@@ -14,7 +14,8 @@ describe('FizzBuzz Function', () => {
     });
 
     test('should return the number as a string if it is not divisible by 3 or 5', () => {
-        expect(fizzBuzz(7)).toBe('7');
+        expect(typeof fizzBuzz(22)).toBe("string");
+        expect(fizzBuzz(22)).toBe("22");
     });
 
     test('should return "fizzbuzz" for the number 0 (since it is divisible by both 3 and 5)', () => {
@@ -27,3 +28,6 @@ describe('FizzBuzz Function', () => {
         expect(fizzBuzz(undefined)).toBe('Invalid input');
     });
 });
+
+
+
