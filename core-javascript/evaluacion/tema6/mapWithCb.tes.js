@@ -28,13 +28,23 @@ describe('mapWithCb Function', () => {
       expect(mockCallback).toHaveBeenCalledTimes(4); 
     });
   
-    test('calls the given function with any one item from the given array', () => {
+    /* test('calls the given function with any one item from the given array', () => {
       const inputArray = [50, 40, 10];
       mapWithCb(inputArray, mockCallback);
       expect(mockCallback).nthCalledWith(1, 50, 0, inputArray);
       expect(mockCallback).nthCalledWith(2, 40, 1, inputArray);
       expect(mockCallback).nthCalledWith(3, 10, 2, inputArray);
-    });
+    }); */
+
+    test('calls the given function with the correct arguments for each item in the array', () => {
+      const inputArray = [50, 40, 10];
+      mapWithCb(inputArray, mockCallback);
+      
+      inputArray.forEach((item, index) => {
+          expect(mockCallback).nthCalledWith(index + 1, item, index, inputArray);
+      });
+  });
+  
   
   
     test('calls the given function a second time with the second item in the given array', () => {

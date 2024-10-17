@@ -1,12 +1,12 @@
 /* links.css - estilos para enlaces */
 a {
-    color: rgb(209, 209, 228); /* Color azul para enlaces */
-    font-size: 1.2em; /* Tamaño de fuente de enlaces */
+    color: #FFD700; 
+    font-size: 1.2em; 
     text-decoration: underline; /* Subrayar enlaces */
 }
 
 /* Estilo para enlaces al pasar el ratón */
 a:hover {
-    color: green; /* Cambiar color al pasar el ratón */
+    color: rgb(#333); 
     font-weight: bold; /* Hacer negrita al pasar el ratón */
 }

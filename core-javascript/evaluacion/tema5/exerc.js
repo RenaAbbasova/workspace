@@ -50,7 +50,7 @@ console.log(temperatura(100, 'Kelvin')); */
 // correcta o no.
 
 // 10.Crea una función que te devuelva el área de un círculo.
-function AreaCirculo(radio, pi = 3.14) {
+/* function AreaCirculo(radio, pi = 3.14) {
 
     if(radio > 0) {
         return  pi * (radio ** 2); 
@@ -65,6 +65,48 @@ console.log(AreaCirculo(5));
 
 function rectangulo(altura, anchura) {
     return altura * anchura 
+} */
+
+
+function* generateSequence(num) {
+    if(num===0 || num===1) {
+        yield num
+    } else {
+        yield generateSequence(num-1) + generateSequence(num-2)
+    }
 }
+let generador = generateSequence()
+for (let value of generador) {
+    console.log(value);
+}
+
+function* generateSequence(num) {
+    let a = 0;
+    let b = 1;
+
+    for (let i = 0; i < num; i++) {
+        yield a; // Devuelve el valor actual de la secuencia
+        [a, b] = [b, a + b]; // Actualiza los valores para la próxima iteración
+    }
+}
+
+
+
+function* generateFibonacciUsingFormula(num) {
+    const phi = (1 + Math.sqrt(5)) / 2; // Número áureo
+    const psi = (1 - Math.sqrt(5)) / 2; // Valor complementario
+
+    for (let n = 0; n < num; n++) {
+        const fibonacciNumber = Math.round((Math.pow(phi, n) - Math.pow(psi, n)) / Math.sqrt(5));
+        yield fibonacciNumber; // Devuelve el número de Fibonacci calculado
+    }
+}
+
+// Usar el generador para obtener los valores de la secuencia de Fibonacci
+let generador = generateFibonacciUsingFormula(10); // Generará los primeros 10 números de Fibonacci
+for (let value of generador) {
+    console.log(value); // Imprime cada número de Fibonacci uno por uno
+}
+
 
 

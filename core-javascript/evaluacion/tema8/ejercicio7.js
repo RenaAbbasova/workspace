@@ -1,56 +1,55 @@
+/* 1.7 Crea una clase para trabajar diferentes transformaciones de un string inicial con diferentes métodos:
+- Conversión de todo el string a array de caracteres uno por uno
+- La ordenación de los caracteres de manera aleatoria
+- La inversión del orden de caracteres
+- Quitar las vocales
+- Quitar las consonantes.
+- Array de palabras
+- Inversión del orden de las palabras del string */
+
+
 class StringTransform {
     constructor(string) {
         this.string = string; 
     } 
 
-    // Conversión de todo el string a array de caracteres uno por uno
+    // Convert the string to an array of characters
     convertToArray() {
         return this.string.split('');
     } 
 
-    // Ordenación de los caracteres de manera aleatoria
+    // Shuffle the characters in a random order
     ordenAleatoria() {
         return this.string
             .split('')
             .sort(() => Math.random() - 0.5)
-            .join(''); // Unimos de nuevo el array en un string
+            .join(''); 
     } 
 
-    // Inversión del orden de caracteres
+    // Reverse the order of characters
     inversionString() {
         return this.string.split('').reverse().join('');
     } 
 
-    // Quitar las vocales
+    // Remove all vowels from the string
     quitarVocales() {
         return this.string.replace(/[aeiouAEIOU]/g, '');
     } 
 
-    // Quitar las consonantes
+    // Remove all consonants from the string
     quitarConsonantes() {
-        return this.string.replace(/[^aeiouAEIOU\s]/g, ''); // Elimina todo excepto vocales y espacios
+        return this.string.replace(/[^aeiouAEIOU\s]/g, '');
     } 
 
-    // Conversión del string a un array de palabras
+    // Convert the string to an array of words
     arrayPalabras() { 
         return this.string.split(' ');
     } 
 
-    // Inversión del orden de las palabras del string
+    // Reverse the order of words in the string
     inversionPalabras() {
         return this.string.split(' ').reverse().join(' ');
     }
 }
 
-// Ejemplo de uso de la clase
-const transform = new StringTransform('Hola Mundo');
-
-console.log(transform.convertToArray()); // ['H', 'o', 'l', 'a', ' ', 'M', 'u', 'n', 'd', 'o']
-console.log(transform.ordenAleatoria()); // Ejemplo: 'loHo adunM' (puede variar)
-console.log(transform.inversionString()); // 'odnuM aloH'
-console.log(transform.quitarVocales()); // 'Hl Mnd'
-console.log(transform.quitarConsonantes()); // 'oa uo'
-console.log(transform.arrayPalabras()); // ['Hola', 'Mundo']
-console.log(transform.inversionPalabras()); // 'Mundo Hola'
-
-
+module.exports = StringTransform; 

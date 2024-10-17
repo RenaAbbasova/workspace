@@ -1,0 +1,127 @@
+body, html {
+    height: 100%; 
+    margin: 0; 
+}
+
+
+body {
+    background-image: url('wood.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Column direction */
+    border: 5px solid #4CAF50; 
+    box-sizing: border-box; /* Include the border in the total width and height calculations */
+    overflow: hidden; /* Prevent any scrollbars from appearing */
+    background-color: #f0f0f0; 
+}
+
+
+
+header {
+    width: 100%;
+    padding: 10px px; /* Adjusted padding for less vertical space */
+    background-color: #a0522d; 
+    color: #FFFFFF; 
+    box-sizing: border-box; 
+}
+
+#title-principal {
+    color: #FFD700;
+    font-size: 2.0em; 
+    text-align: center;
+}
+
+.section {
+    flex: 1; /* Make the section take up available space */
+    display: flex; /* Use flexbox for section */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; 
+    margin: 0 30px; 
+}
+
+h2 {
+    
+    color: #77B300; 
+    font-size: 1.7em; 
+    margin: 15px 0; 
+    
+}
+
+h3 {
+    color: #A4D65E;; 
+    font-size: 1.5em; /* Tamaño de fuente grande para destacar */
+    margin: 10px 0;
+    
+}
+
+.ingredients-title {
+    color: rgb(29, 219, 194);
+   
+}
+
+ul {
+    text-align: left; 
+   
+    color: #FFFFFF; 
+    font-size: 1.2em; 
+    line-height: 1.6; 
+}
+
+.instructions-title {
+    color: rgb(29, 219, 194);
+   
+}
+
+.instructions-text {
+   
+    color: #FFFFFF; 
+    font-size: 1.2em; 
+    line-height: 1.6; 
+}
+
+.right-image {
+    border-radius: 15px; /* Hace que las esquinas de la imagen sean redondeadas */
+    max-width: 45%; /* Adjust max width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+footer {
+    color: #fcf7f7; 
+    text-align: center; 
+    padding: 20px; /* Espaciado alrededor del texto */
+    margin-top: 10px; /* Espacio por encima del pie de página */
+    width: 100%; 
+   
+}
+
+footer p {
+    font-size: 18px;
+    color: #f0f0f3;
+}
+
+footer strong {
+    text-shadow: 1px 1px 2px rgba(9, 5, 248, 0.966); /* Adds a subtle shadow to the text */
+}
+
+
+
+#title-principal::after {
+    content: " 🌮"; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .section {
+        flex-direction: column; /* Stack items on small screens */
+        align-items: center; 
+    }
+
+    .right-image {
+        max-width: 80%; /* Wider image on small screens */
+        margin-top: 20px; /* Add margin above image */
+    }
+}
