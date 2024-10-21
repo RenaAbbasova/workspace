@@ -11,7 +11,7 @@ function title() {
         return currentword.charAt(0).toUpperCase() + currentword.slice(1).toLowerCase()});
     let newstring = newword.join(' ');
 
-    alert(`Here is the new string: ${newstring}`);
+    console.log(`Here is the new string: ${newstring}`);
 }   
 
 title();

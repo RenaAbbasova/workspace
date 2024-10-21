@@ -10,5 +10,11 @@ ul>li::marker {
 
 ul>li:last-child::marker {
     content: '✔️';
+    color: green;
     font-size: 1.5em;
+}
+
+div{
+    border: dotted;
+    border-width: 1px;
 }
