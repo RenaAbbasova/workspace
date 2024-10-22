@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Artículos</title>
+</head>
+<body>
+    <h1>Lista de Artículos</h1>
+    <button id="fetch-button">Obtener Todos los Artículos</button> <!-- Botón para obtener todos los artículos -->
+
+    <div id="article-info">
+        <p id="article-count"></p> <!-- Para mostrar la cantidad de artículos -->
+        <ul id="article-titles"></ul> <!-- Lista de títulos -->
+        <table id="article-table" border="1"> <!-- Tabla con títulos y contenidos -->
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Contenido</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Vinculamos el archivo JavaScript externo -->
+    <script src="ejer8.js" defer></script>
+</body>
+</html>

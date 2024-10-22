@@ -1,3 +1,72 @@
 Table, td, th {
     border: black 1px solid;
+    
 }
+table {
+    width: 100%; /* Makes the table take the full width */
+    border-collapse: collapse; /* Merges borders to avoid double borders */
+}
+
+
+/* Tabla principal */
+#Horario {
+
+    border-collapse: collapse;
+    width: 17%;
+    font-family: Arial, sans-serif;
+    background-color: #bcf734;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la Tabla */
+.encabezado {
+    background-color: #eed5c5;
+    font-family: Arial, sans-serif;
+    
+    color: rgb(17, 14, 14);
+}
+
+/* Specific Colors */
+.horario {
+    background-color: #bcf734; /* Green for horario column */
+    color: white;
+    font-weight: bold;
+    color: rgb(7, 14, 17);
+    text-align: center; 
+    width: 10%;
+
+} 
+.formacion {
+    background-color: #d0eeee; /* Green for horario column */
+    color: white;
+    font-weight: bold;
+    color: rgb(7, 14, 17);
+    text-align: center; 
+
+}
+.sprint {
+    background-color: hsl(0, 94%, 52%); /* Green for horario column */
+    color: white;
+    font-weight: bold;
+    color: rgb(7, 14, 17);
+    text-align: center; 
+}
+.daily {
+    background-color: #e2aed7; /* Green for horario column */
+    color: white;
+    font-weight: bold;
+    color: rgb(7, 14, 17);
+    text-align: center; 
+}
+
+.almuerzo {
+    border-collapse: collapse;
+    
+    border-collapse: collapse;
+    background-color: #ffff99; /* Yellow background */
+    font-style: italic;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center; /* Centers the text within the cell */
+}
+

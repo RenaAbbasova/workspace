@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro</title>
+    <!-- CSS -->
+    <style>
+        .marco {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .tiempo {
+            font-size: 3em;
+            font-family: monospace;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML -->
+    <div class="marco">
+        <div class="tiempo" id="tiempo">
+            00:00:00.000
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let tiempoRef = Date.now();
+        let cronometrar = false; // Start in paused state
+        let acumulado = 0;
+
+        // Update the display every 60 frames per second
+        setInterval(() => {
+            let tiempo = document.getElementById("tiempo");
+            if (cronometrar) {
+                acumulado = Date.now() - tiempoRef;
+            }
+            tiempo.innerHTML = formatearMS(acumulado);
+        }, 1000 / 60);
+
+        // Function to format milliseconds to HH:MM:SS.mmm
+        function formatearMS(ms) {
+            let MS = ms % 1000;
+            let S = Math.floor((ms / 1000) % 60);
+            let M = Math.floor((ms / (1000 * 60)) % 60);
+            let H = Math.floor((ms / (1000 * 60 * 60)));
+
+            // Helper function to add leading zeros
+            Number.prototype.ceros = function(n) {
+                return (this + "").padStart(n, "0");
+            };
+
+            return H.ceros(2) + ":" + M.ceros(2) + ":" + S.ceros(2) + "." + MS.ceros(3);
+        }
+
+        // Toggle start/stop on click
+        document.getElementById('tiempo').addEventListener('click', () => {
+            if (!cronometrar) {
+                // Start the timer
+                tiempoRef = Date.now() - acumulado; // Adjust start time to continue from where it was
+                cronometrar = true;
+            } else {
+                // Stop the timer
+                cronometrar = false;
+            }
+        });
+    </script>
+</body>
+</html>
