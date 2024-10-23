@@ -1,53 +1,46 @@
-
-
-let interval;
-let isRunning = false;
-let startTime = 0;
-let elapsedTime = 0;
-
-// Función para iniciar o pausar el cronómetro con un clic
-function toggleCronometro() {
-    if (!isRunning) {
-        startTime = Date.now() - elapsedTime; // Ajustar el tiempo de inicio para continuar
-        interval = setInterval(updateCronometro, 1000); // Actualiza cada segundo
-        isRunning = true;
-    } else {
-        clearInterval(interval); // Pausar el cronómetro
-        isRunning = false;
-    }
-}
-
-// Función para reiniciar el cronómetro
-function resetCronometro() {
-    clearInterval(interval);
-    isRunning = false;
-    startTime = 0;
-    elapsedTime = 0;
-    document.getElementById('cronometro').textContent = '00:00';
-}
-
-// Función para actualizar el cronómetro cada segundo
-function updateCronometro() {
-    elapsedTime = Date.now() - startTime;
-
-    const totalSeconds = Math.floor(elapsedTime / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-
-    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-    const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
-
-    document.getElementById('cronometro').textContent = `${formattedMinutes}:${formattedSeconds}`;
-}
-
-// Manejo del clic en el cronómetro para iniciar/pausar el cronómetro
-document.getElementById('cronometro').addEventListener('click', toggleCronometro);
-
-// Botón para reiniciar el cronómetro
-document.getElementById('resetButton').addEventListener('click', resetCronometro);
-
-
-
+//8. Crea un cronómetro en una página web (muy simple, sólo minutos ysegundos) 
 /* 9. Sobre el ejercicio anterior, haz que con el click del ratón se pueda parar
 o continuar el tiempo. (No hace falta controlar el momento en el que se
 para el tiempo a la hora de volver a empezar)  */
+
+
+let tiempoRef = Date.now();
+let cronometrar = true; // Start in paused state
+let acumulado = 0;
+
+// Update the display every 60 frames per second
+setInterval(() => {
+    let tiempo = document.getElementById("tiempo");
+    if (cronometrar) {
+        acumulado = Date.now() - tiempoRef;
+    }
+    tiempo.innerHTML = formatearMS(acumulado);
+}, 1000 / 60);
+
+// Function to format milliseconds to MM:SS
+function formatearMS(ms) {
+    let S = Math.floor((ms / 1000) % 60);
+    let M = Math.floor((ms / (1000 * 60)) % 60);
+
+    // Helper function to add leading zeros
+    Number.prototype.ceros = function(n) {
+        return (this + "").padStart(n, "0");
+    };
+
+    return M.ceros(2) + ":" + S.ceros(2);
+}
+
+// Toggle start/stop on click
+document.getElementById('tiempo').addEventListener('click', () => {
+    if (!cronometrar) {
+        // Start the timer
+        tiempoRef = Date.now() - acumulado; // Adjust start time to continue from where it was
+        cronometrar = true;
+    } else {
+        // Stop the timer
+        cronometrar = false;
+    }
+});
+
+// Export the function for testing
+module.exports = { formatearMS };

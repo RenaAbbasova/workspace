@@ -1,29 +1,59 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronómetro Simple</title>
+    <title>Cronómetro</title>
+    <!-- CSS -->
     <style>
-        #cronometro {
-            font-size: 3em;
-            text-align: center;
-            margin-top: 50px;
-            cursor: pointer;
+        .marco {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
-        #resetButton {
+
+        /* Container for image and timer */
+        .contenedor-imagen {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Image as the background */
+        .contenedor-imagen img {
             display: block;
-            margin: 20px auto;
+        }
+
+        /* Timer positioned over the image */
+        .tiempo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+            font-family: monospace;
+            background-color: rgba(231, 148, 133, 0.5); /* Semi-transparent background */
+            color: #1a1818;
             padding: 10px 20px;
-            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div id="cronometro">00:00</div>
-    <button id="resetButton">Reiniciar</button>
+    <!-- HTML -->
+    <div class="marco">
+        <div class="contenedor-imagen">
+            <img src="image.png" alt="Cronómetro Image" class="image">
+            <div class="tiempo" id="tiempo">
+                00:00
+            </div>
+        </div>
+    </div>
 
-    <!-- Vinculamos el archivo JavaScript externo -->
-    <script src="cronometro.js" defer></script>
+    <!-- JavaScript -->
+    <script src="ejer9.js"></script>
 </body>
 </html>
+

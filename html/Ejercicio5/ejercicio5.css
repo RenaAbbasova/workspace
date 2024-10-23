@@ -1,72 +1,71 @@
-Table, td, th {
-    border: black 1px solid;
-    
-}
-table {
-    width: 100%; /* Makes the table take the full width */
-    border-collapse: collapse; /* Merges borders to avoid double borders */
+body {
+    font-family: Arial, sans-serif;
 }
 
+h2 {
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Equal column width */
+}
+
+th, td {
+    border: 2px solid black;
+    text-align: center;
+    padding: 5px;
+    font-size: 25px;
+}
 
 /* Tabla principal */
 #Horario {
-
-    border-collapse: collapse;
-    width: 17%;
-    font-family: Arial, sans-serif;
-    background-color: #bcf734;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #99ff00; /* Bright Green for time column */
+    font-weight: normal;
+    font-size: 25px;
 }
 
 /* Encabezado de la Tabla */
 .encabezado {
-    background-color: #eed5c5;
-    font-family: Arial, sans-serif;
-    
+    background-color: #ffebcd;
     color: rgb(17, 14, 14);
 }
 
 /* Specific Colors */
 .horario {
-    background-color: #bcf734; /* Green for horario column */
-    color: white;
-    font-weight: bold;
-    color: rgb(7, 14, 17);
-    text-align: center; 
-    width: 10%;
-
+    background-color: #99ff00; /* Bright Green for time column */
+    font-weight: normal;
+    font-size: 25px;
 } 
 .formacion {
-    background-color: #d0eeee; /* Green for horario column */
-    color: white;
-    font-weight: bold;
-    color: rgb(7, 14, 17);
-    text-align: center; 
-
+    background-color: #cceeff; /* Light Blue for Training */
+    color: #000000; /* Black text */
+    font-size: 16px;
 }
 .sprint {
-    background-color: hsl(0, 94%, 52%); /* Green for horario column */
-    color: white;
-    font-weight: bold;
-    color: rgb(7, 14, 17);
-    text-align: center; 
+    background-color: #ff0000; /* Bright Red for Sprint Review */
+    color: #000000; /* Black text */
+    font-style: italic;
+    font-size: 16px; 
 }
 .daily {
-    background-color: #e2aed7; /* Green for horario column */
-    color: white;
-    font-weight: bold;
-    color: rgb(7, 14, 17);
-    text-align: center; 
+    background-color: #f8d7da; /* Light Pink for Daily Scrum */
+    color: #800000; /* Dark Red text */
+    font-style: italic;
+    font-size: 16px; 
 }
 
 .almuerzo {
-    border-collapse: collapse;
-    
-    border-collapse: collapse;
-    background-color: #ffff99; /* Yellow background */
-    font-style: italic;
-    border-collapse: collapse;
-    width: 80%;
-    text-align: center; /* Centers the text within the cell */
+    background-color: #ffff33; /* Bright Yellow for Lunch */
+    font-weight: normal;
+    font-size: 25px;
+    color: #867d7d; /* Black text */
 }
-
+.sprint-retrospective {
+    background-color: #ff0000; /* Bright Red for Sprint Retrospective */
+    color: #000000;
+    font-size: 18px;
+    font-weight: italic;
+}
