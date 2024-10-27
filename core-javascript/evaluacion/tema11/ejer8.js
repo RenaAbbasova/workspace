@@ -56,3 +56,5 @@ function displayArticleInfo(articles) {
 
 // Evento para manejar el botón de obtener todos los artículos
 document.getElementById('fetch-button').addEventListener('click', fetchAllArticles);
+
+

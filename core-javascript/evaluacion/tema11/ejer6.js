@@ -1,7 +1,9 @@
-/* 6. Pide información con fetch a la url: https://jsonplaceholder.typicode.com/posts/1. Loguea el status de la petición e imprime por pantalla el contenido del 
+/* /* 6. Pide información con fetch a la url: https://jsonplaceholder.typicode.com/posts/1. Loguea el status de la petición e imprime por pantalla el contenido del 
 artículo que has recibido. */
 
+
 let url = 'https://jsonplaceholder.typicode.com/posts/1';
+
 
 // Creamos una función asíncrona para manejar el fetch
 async function fetchData() {
@@ -25,8 +27,20 @@ async function fetchData() {
 // Función para mostrar el contenido en el div
 function displayContent(data) {
     const contentDiv = document.getElementById('article-content');
-    contentDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`; // Muestra el objeto JSON formateado
+    if (contentDiv) {
+        contentDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+    } else {
+        console.error('Content div not found');
+    }
 }
 
+
 // Llama a la función para obtener el artículo
-fetchData();
+fetchData(); 
+
+module.exports = { fetchData };
+
+
+
+
+

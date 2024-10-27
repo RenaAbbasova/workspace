@@ -11,6 +11,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     table-layout: auto; /* Equal column width */
+    
 }
 
 th, td {
@@ -48,7 +49,7 @@ th, td {
     background-color: #ff0000; /* Bright Red for Sprint Review */
     color: #000000; /* Black text */
     font-style: italic;
-    font-size: 16px; 
+    font-size: 25px; 
 }
 .daily {
     background-color: #f8d7da; /* Light Pink for Daily Scrum */
@@ -66,6 +67,6 @@ th, td {
 .sprint-retrospective {
     background-color: #ff0000; /* Bright Red for Sprint Retrospective */
     color: #000000;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: italic;
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img src="image.png" alt="let tiempoRef = Date.now();
+                let acumulado = 0;
+                
+                const timerState = {
+                    cronometrar: true, // Now a property of the object
+                };
+                
+                // Function to start the timer interval
+                function startTimer() {
+                    const tiempo = document.getElementById("tiempo");
+                    if (!tiempo) return;
+                
+                    setInterval(() => {
+                        if (timerState.cronometrar) {
+                            acumulado = Date.now() - tiempoRef;
+                        }
+                        tiempo.innerHTML = formatearMS(acumulado);
+                    }, 1000 / 60);
+                
+                    tiempo.addEventListener('click', toggleTimer);
+                }
+                
+                // Function to toggle start/stop
+                function toggleTimer() {
+                    if (!timerState.cronometrar) {
+                        tiempoRef = Date.now() - acumulado; // Adjust start time
+                        timerState.cronometrar = true;
+                    } else {
+                        timerState.cronometrar = false;
+                    }
+                }
+                
+                // Format function for milliseconds to MM:SS
+                function formatearMS(ms) {
+                    let S = Math.floor((ms / 1000) % 60);
+                    let M = Math.floor((ms / (1000 * 60)) % 60);
+                
+                    Number.prototype.ceros = function (n) {
+                        return (this + "").padStart(n, "0");
+                    };
+                
+                    return M.ceros(2) + ":" + S.ceros(2);
+                }
+                
+                module.exports = { formatearMS, startTimer, toggleTimer, timerState };
+                "></td>
+            
+        </tr>
+    </table>
+</body>
+</html>
