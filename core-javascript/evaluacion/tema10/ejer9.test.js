@@ -83,6 +83,9 @@ describe('Timer Interaction', () => {
         expect(timerState.cronometrar).toBe(true);
     });
 }); 
+ 
+
+ 
 
 
 

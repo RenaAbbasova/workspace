@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Experiencia de Usuario</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <h2>Encuesta de Experiencia de Usuario</h2>
+    <form action="/submit-survey" method="POST">
+        <br>
+        <label for="name">Tu Nombre:</label>
+        <input type="text" id="name" name="user_name" required>
+        <br>
+        <label for="mail">Correo electrónico:</label>
+        <input type="email" id="mail" name="user_mail" required>
+        <br>
+        <!-- Radio Buttons for Rating -->
+        <label>¿Cómo calificaría nuestra plataforma?</label><br>
+        <label><input type="radio" name="rating" value="excelente" required> Excelente</label>
+        <label><input type="radio" name="rating" value="bueno" required> Bueno</label>
+        <label><input type="radio" name="rating" value="regular" required> Regular</label>
+        <label><input type="radio" name="rating" value="malo" required> Malo</label>
+        <br>
+        <!-- Date Input for Feedback Date -->
+        <label for="date">Fecha de la experiencia:</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+        <!-- Checkbox for Consent -->
+        <label><input type="checkbox" name="consent" required> Acepto compartir mi experiencia públicamente.</label>
+        <br><br>
+        
+        <!-- Submit Button -->
+        <button type="submit">Enviar Encuesta</button>
+    </form>
+</body>
+</html>

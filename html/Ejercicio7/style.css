@@ -1,0 +1,22 @@
+/* Fondo de la página principal */
+body {
+    background-color: #007BFF; /* Fondo azul */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo de los iframes */
+iframe {
+    width: 80%;           /* Anchura de los iframes */
+    height: 300px;        /* Altura fija para los iframes */
+    margin: 10px;         /* Margen en los cuatro lados */
+    border: 2px solid #fff;         /* Sin borde */
+    display: block;
+    align-items: center;
+}
+h1, p {
+    align-items: center;
+}

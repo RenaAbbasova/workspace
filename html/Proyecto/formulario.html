@@ -1,0 +1,21 @@
+<section class="casting">
+    <h2>Solicitud de Casting</h2>
+    <form action="enviar_casting.php" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="contacto">Número de contacto</label>
+        <input type="tel" id="contacto" name="contacto" required>
+
+        <label for="descripcion">Descripción del Casting</label>
+        <textarea id="descripcion" name="descripcion" required></textarea>
+
+        <label for="archivos">Adjuntar archivos (opcional)</label>
+        <input type="file" id="archivos" name="archivos[]" multiple>
+
+        <button type="submit">Enviar Solicitud</button>
+    </form>
+</section>

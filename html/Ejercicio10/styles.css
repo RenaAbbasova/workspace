@@ -1,0 +1,65 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    padding: 5px;
+}
+
+
+img {
+    width: 95%;
+    height: 95%;
+    transition: filter 0s, transform 0s; /* 0s delay, no initial transition */
+}
+
+
+/* Filtros iniciales aplicados a cada imagen */
+#img1 { filter: drop-shadow(5px 5px 10px red);}
+#img2 { filter: grayscale(100%); } 
+#img3 { filter: sepia(100%); } 
+#img4 { filter: blur(2px); } 
+#img5 { filter: brightness(180%); } 
+#img6 { filter: contrast(250%); } 
+#img7 { filter: hue-rotate(150deg); } 
+#img8 { filter: invert(100%); } 
+#img9 { filter: opacity(40%); } 
+#img10 { filter: saturate(200%); } 
+#img11 { /*sin filtro*/} 
+#img12 { filter: grayscale(50%) brightness(120%) contrast(150%); } 
+
+
+#img1:hover,
+#img2:hover,
+#img3:hover,
+#img4:hover {
+    filter: none;
+    transition: filter 5s ease-in-out;
+    
+}
+
+
+
+#img5:hover,
+#img6:hover,
+#img7:hover,
+#img8:hover{
+    filter: none;
+    transition: filter 5s ease, transform 5s linear;
+}
+
+
+
+#img9:hover,
+#img10:hover,
+#img11:hover,
+#img12:hover {
+    filter: none;  
+    transition:  5s cubic-bezier(0.68, -0.55, 0.27, 1.55), transform 5s ease-in-out; 
+    transform: scale(1.5); 
+}
+
+
+
+

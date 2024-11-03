@@ -1,21 +1,17 @@
 /* /* 6. Pide información con fetch a la url: https://jsonplaceholder.typicode.com/posts/1. Loguea el status de la petición e imprime por pantalla el contenido del 
 artículo que has recibido. */
+//let url = 'https://jsonplaceholder.typicode.com/posts/1';
 
 
-let url = 'https://jsonplaceholder.typicode.com/posts/1';
-
-
-// Creamos una función asíncrona para manejar el fetch
-async function fetchData() {
+async function fetchData(displayContent = displayContentOriginal) {
     try {
-        let response = await fetch(url);
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
 
-        // Loguea el estado de la petición
         console.log('Status de la petición:', response.status);
 
         if (response.ok) {
             let json = await response.json();
-            displayContent(json); // Llamar a la función para mostrar el contenido
+            displayContent(json); // Call displayContent with JSON data
         } else {
             console.error('Error HTTP:', response.status);
         }
@@ -24,8 +20,7 @@ async function fetchData() {
     }
 }
 
-// Función para mostrar el contenido en el div
-function displayContent(data) {
+function displayContentOriginal(data) {
     const contentDiv = document.getElementById('article-content');
     if (contentDiv) {
         contentDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
@@ -34,11 +29,13 @@ function displayContent(data) {
     }
 }
 
+// Conditionally call fetchData if not in a test environment
+if (typeof process === 'undefined' || process.env.NODE_ENV !== 'test') {
+    fetchData();
+}
 
-// Llama a la función para obtener el artículo
-fetchData(); 
+module.exports = { fetchData, displayContent: displayContentOriginal };
 
-module.exports = { fetchData };
 
 
 

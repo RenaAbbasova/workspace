@@ -5,3 +5,6 @@ global.fetch = jest.fn(() =>
         json: () => Promise.resolve({ data: 'mocked data' }) // Mocked response data
     })
 );
+
+require('jest-fetch-mock').enableMocks();
+
