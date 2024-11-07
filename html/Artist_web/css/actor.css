@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@100;300;400;500;700;900%C2%ACdisplay=swap');
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: 1s;
+   
+}
+
+:root {
+    --dark: #19161f;
+    --light: #f3f3f3;
+    --primary: #b35aab;
+    --primaryHover: #cf6324;
+    --second: #7399c0;
+    --secondHover: #3cca9b;
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 1000;
+}
+
+body {
+    background: var(--second);
+   
+}
+
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+.nav li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.nav li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav li:hover a, body.light .nav li:hover a {
+    color: var(--primaryHover)
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 40px 20px 0 20px;
+}
+
+.container .heading{
+    width: 50%;
+    padding-bottom: 50px;
+
+}
+
+.container .heading h3 {
+    font-size: 3em;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #222;  
+}
+
+
+.container .heading h3 span{
+    font-weight: 100;
+}   
+
+.container .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}  
+
+.container .box .dream {
+    display: flex;
+    flex-direction: column;
+    width: 32.5%;
+}
+
+.container .box .dream img {
+    padding-bottom: 15px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.container .btn {
+    margin: 40px 0 70px 0;
+    background: #222;
+    padding: 15px 40px;
+    border-radius: 5px;
+}
+
+.container .btn {
+    margin: 40px 0 70px 0;
+    background: #222;
+    padding: 15px 40px;
+    border-radius: 5px;
+
+}.container .btn a {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bolder;
+    letter-spacing: 3px;
+}
+

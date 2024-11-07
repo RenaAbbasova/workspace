@@ -9,10 +9,10 @@
 :root {
     --dark: #19161f;
     --light: #f3f3f3;
-    --primary: #fcb320;
-    --primaryHover: #ff8000;
-    --second: #0080ff;
-    --secondHover: #0051ff;
+    --primary: #b35aab;
+    --primaryHover: #cf6324;
+    --second: #7399c0;
+    --secondHover: #3cca9b;
 }
 
 body {
@@ -33,7 +33,7 @@ body.light {
 /* Header */
 header {
     position: absolute;
-    top: 0;
+    top: -25px;
     left: 0;
     width: 100%;
     display: flex;
@@ -52,14 +52,59 @@ header {
 }
 
 /* Header left */
-.logo {
+/* .logo {
     font-size: 2rem;
     color: var(--light);
     letter-spacing: 1px;
     font-weight: 800;
     text-decoration: none;
     transition: 0.3s;
+    text-align: center;
+}  */
+
+
+.logo {
+    text-align: center;
+    text-decoration: none;
 }
+
+.vanessa {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 60px; /* Tamaño de fuente para 'Vanessa' */
+    color: #d291bc; /* Color pastel */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.representation, .scale {
+    font-size: 20px; /* Tamaño de fuente para el texto inferior */
+    margin: 0;
+}
+
+.representation {
+    font-weight: bold;
+}
+
+.scale {
+    font-style: italic;
+}
+
+/* Color de texto basado en el modo de fondo */
+body.light .vanessa,
+body.light .representation,
+body.light .scale {
+    color: var(--dark); /* Texto oscuro para fondo claro */
+}
+
+/* Hover effect for the logo and its text */
+.logo:hover .vanessa,
+.logo:hover .representation,
+.logo:hover .scale {
+    color: var(--primary); /* Cambia el color al pasar el mouse */
+    transition: color 0.3s; /* Suaviza la transición del color */
+}
+
+
 
 body.light .logo {
     color: var(--dark)
@@ -98,10 +143,10 @@ body.light .nav li a {
     font-size: 1rem;
     color: var(--light);
     font-weight: 600;
-    text-decoration: none;
+    text-decoration: underline;
     padding: 10px 25px;
     background: var(--primary);
-    border-radius: 30px 40px 0 15px;
+   /*  border-radius: 10px 50px 0 50px; */
     transition: 0.3s;
 }
 
@@ -146,7 +191,7 @@ body.light .icon-dark {
 }
 
 .banner .content .title {
-    font-size: 6rem;
+    font-size: 3rem;
     color: var(--light);
     margin-bottom: 20px;
     transition: 0.3s;
@@ -179,7 +224,7 @@ body.light .banner .content p {
 
 .btn-left {
     background:  var(--primary);
-    border-radius: 50px 30px 30px 0;
+    border-radius: 100px 0px 0px 0;
     margin-right: 20px;
 }
 
@@ -189,7 +234,7 @@ body.light .banner .content p {
 
 .btn-right {
     background: var(--second);
-    border-radius: 30px 0 50px 30px;
+    border-radius: 0px 0 100px 0px;
 }
 
 .btn-right:hover {
@@ -210,10 +255,10 @@ body.light .banner .content p {
     position: relative;
     width: 200px;
     overflow: hidden;
-    border-radius: 100%;
-    transition: ease-in-out 0.3s;
+    border-radius: 20%;
+    transition: ease-in-out 3s;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(226, 196, 196, 0.87);
+    box-shadow: 0 4px 10px rgba(112, 104, 104, 0.87);
 }
 
 .gallery .item:hover {
@@ -234,44 +279,41 @@ body.light .gallery .item:hover {
 
 .gallery .item:nth-of-type(1) {
     grid-row: 1/4; 
-    animation: move 5s linear infinite;
+    animation: move 10s linear infinite;
 }
 
 .gallery .item:nth-of-type(2) {
     grid-row: 2/5; 
-    animation: moveInverse 5s linear infinite;
+    animation: moveInverse 10s linear infinite;/*midle foto*/
 }
 
 .gallery .item:nth-of-type(3) {
     grid-row: 3/6; 
-    animation: move 5s linear infinite;
+    animation: move 10s linear infinite;
 }
 .gallery .item:nth-of-type(4) {
-    animation: moveInverse 5s linear infinite;
+    animation: moveInverse 10s linear infinite;/*midlle foto*/
 }
 .gallery .item:nth-of-type(5) {
-    animation: move 5s linear infinite;
+    animation: move 10s linear infinite;
 }
 
 .gallery .item:nth-of-type(6) {
-    animation: move 5s linear infinite;
+    animation: move 10s linear infinite;
 }
 .gallery .item:nth-of-type(7) {
-    animation: move 5s linear infinite;
+    animation: move 10s linear infinite;
 }
 .gallery .item:nth-of-type(8) {
-    animation: move 5s linear infinite;
+    animation: move 10s linear infinite;
 }
 .gallery .item:nth-of-type(9) {
-    animation: moveInverse 5s linear infinite;
+    animation: moveInverse 10s linear infinite; /*midle foto*/
 }
-
-
-
 
 
 /* Keyframe Animation */
-@keyframes move {
+/* @keyframes move {
     0% { 
         transform: translateY(0); 
     }
@@ -285,7 +327,7 @@ body.light .gallery .item:hover {
 
 
 /* Keyframe Animation */
-@keyframes moveInverse {
+/* @keyframes moveInverse {
     0% { 
         transform: translateY(0); 
     }
@@ -295,7 +337,28 @@ body.light .gallery .item:hover {
     100% { 
         transform: translateY(0); 
     }
-}
+}  */ 
+
+/* Keyframe Animation for Circular Movement */
+/* @keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100px, 100px); 
+    }
+    50% {
+        transform: translate(0, 200px);
+    }
+    75% {
+        transform: translate(-100px, 100px); 
+    }
+    100% {
+        transform: translate(0, 0); 
+    }
+} */
+
+
 
 .link {
     position: absolute;
@@ -319,4 +382,4 @@ body.light .gallery .item:hover {
     border-radius: 50%;
  }
 
-
+/*** login ***/
