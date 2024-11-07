@@ -41,3 +41,11 @@ function toggleMoreInfo(actorId) {
     }
 }
 
+
+// forgot password page
+
+function redirectToLogin(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+    // Add any additional validation or actions here if needed
+    window.location.href = "login.html"; // Redirect to login.html
+}

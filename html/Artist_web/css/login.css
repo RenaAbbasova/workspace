@@ -72,15 +72,17 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    border: 1px solid  var(--dark);
+    border: 2px solid  var(--light);
     border-radius: 40px;
     font-size: 16px;
-    color: var(--dark);
+    color: var(--light);
     padding: 20px 45px 20px 20px;
+    box-shadow: 0 0 10px var(--light);
+    
 }
 
 .input-box input::placeholder {
-    color: var(--dark)
+    color: var(--light)
 }
 
 .input-box i {
@@ -168,5 +170,9 @@ body {
 .nav li:hover a, body.light .nav li:hover a {
     color: var(--primaryHover)
 }
+
+/* forgot password */
+
+
 
 
