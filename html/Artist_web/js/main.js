@@ -12,7 +12,6 @@ function prevPage() {
     if (currentPage > 1) {
         currentPage--;
         updatePaginationButtons();
-        // Logic to display the previous page content
     }
 }
 
@@ -20,7 +19,6 @@ function nextPage() {
     if (currentPage < totalPages) {
         currentPage++;
         updatePaginationButtons();
-        // Logic to display the next page content
     }
 }
 
@@ -29,7 +27,7 @@ function updatePaginationButtons() {
     document.getElementById("nextBtn").disabled = currentPage === totalPages;
 }
 
-updatePaginationButtons(); // Initialize button states
+updatePaginationButtons();
 
 // acter page
 function toggleMoreInfo(actorId) {
@@ -46,6 +44,6 @@ function toggleMoreInfo(actorId) {
 
 function redirectToLogin(event) {
     event.preventDefault(); // Prevent the form from submitting normally
-    // Add any additional validation or actions here if needed
+    
     window.location.href = "login.html"; // Redirect to login.html
 }

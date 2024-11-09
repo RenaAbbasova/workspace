@@ -1,2 +1,112 @@
 /*https://boxicons.com/usage*/
 
+i couldnt set up row  under row and properly put columns, the problem is row an dcol associated with frameworks like Bootstrap, and their behavior relies on the spacific rules
+
+Using .col-6 means that the content inside will only take up half the available width of the row (50%). If you want the form to take up the full width of the row, use .col-12 instead of .col-6.
+
+
+Proyecto de Página de Contacto - Descripción y Problemas Resueltos
+
+Descripción del Proyecto:
+
+Este proyecto es una página de contacto sencilla, diseñada con HTML, CSS y Bootstrap 4. El propósito de esta página es permitir que los usuarios puedan enviar un mensaje, proporcionando su nombre, número de contacto, correo electrónico y un mensaje. La página incluye también un mapa interactivo de Google, para que los usuarios puedan ver la ubicación de la empresa o el centro de atención.
+
+Estructura del Proyecto:
+
+HTML: Contiene la estructura principal de la página, incluidos los campos de formulario, el mapa interactivo y los botones.
+CSS (login.css): Define los estilos personalizados para la página, incluidas las imágenes de fondo, los estilos de los botones y los efectos de hover.
+Bootstrap 4: Se utiliza para la creación del diseño responsivo y la organización del contenido mediante su sistema de rejillas.
+Problemas Encontrados y Soluciones:
+
+Diseño Responsivo (CSS):
+
+Problema: Los campos del formulario no se alineaban correctamente en dispositivos pequeños.
+Solución: Usé el sistema de rejilla de Bootstrap para asegurarme de que los campos se alinearan adecuadamente y ajusté el diseño con consultas de medios en el archivo CSS para mejorar la adaptabilidad.
+Botón de Enviar (Submit):
+
+Problema: El botón no tenía un estilo atractivo y el efecto hover no funcionaba correctamente.
+Solución: Implementé un estilo personalizado para el botón utilizando una clase CSS específica y añadí el efecto hover que cambia el color de fondo y el texto al pasar el ratón por encima.
+Imágenes de Fondo Diferentes para Páginas Diferentes:
+
+Problema: Quería aplicar diferentes imágenes de fondo en distintas páginas, pero no sabía cómo gestionarlo sin duplicar código.
+Solución: Definí clases específicas en el archivo CSS para cada página (por ejemplo, .contact-page y .home-page) y asigné diferentes imágenes de fondo a cada página mediante clases aplicadas en el <body>.
+Formulario de Contacto (Espaciado):
+
+Problema: El espaciado entre los campos del formulario era inconsistente y hacía que el diseño no se viera bien.
+Solución: Utilicé las clases de espaciado de Bootstrap (mb-3) y ajusté algunos márgenes y rellenos personalizados en el archivo CSS para obtener un espaciado uniforme entre los campos.
+Mapa de Google Embebido:
+
+Problema: El mapa no se ajustaba al tamaño adecuado en el iframe y se desbordaba en pantallas pequeñas.
+Solución: Usé la clase container de Bootstrap y aplicué estilos personalizados en CSS para garantizar que el mapa se ajustara correctamente al contenedor y fuera fluido en pantallas pequeñas.
+Validación de Formularios (Sin Backend):
+
+Problema: El formulario no enviaba datos a un servidor y no había una validación más allá de los atributos básicos de HTML.
+Solución: Implementé validaciones básicas de los campos utilizando HTML5 (required), pero el formulario no tiene funcionalidad de backend ya que esta es una página estática.
+Cómo Me Ayudaste:
+
+Ajuste del Diseño con Bootstrap: Me ayudaste a comprender cómo usar Bootstrap para mejorar el diseño de la página, asegurando que el formulario fuera responsivo y se adaptara bien a diferentes tamaños de pantalla.
+
+Fondo y Estilos CSS: Me diste la solución para aplicar imágenes de fondo diferentes en las páginas sin duplicar el código, mediante clases específicas para cada página.
+
+Efectos de Hover en el Botón: Gracias a tus recomendaciones, pude agregar un hover adecuado en el botón de "Enviar", lo que mejoró la experiencia del usuario.
+
+Solución de Problemas Técnicos: Me orientaste sobre cómo organizar los elementos en la página y cómo usar las clases de Bootstrap correctamente para evitar problemas de alineación, espaciado y visibilidad en dispositivos pequeños.
+
+Recursos Utilizados:
+
+Bootstrap 4: Para la creación del diseño responsivo y la organización del contenido mediante el sistema de rejillas.
+Google Maps Embed API: Para integrar un mapa interactivo en la página de contacto.
+HTML5: Para la estructura básica del contenido y las validaciones simples en los formularios.
+CSS Personalizado (login.css): Para estilos específicos, como los fondos de la página y el diseño de los formularios.
+
+/// pagina profile//
+
+1. Estructura HTML
+Elementos principales:
+Utilizamos una estructura HTML sencilla para la tarjeta dentro de un contenedor .container que centra la tarjeta.
+La tarjeta incluye elementos de perfil como:
+Un título de perfil (.title)
+Una barra de progreso (.bar, .emptybar, .fillebar)
+Detalles del perfil (.profile-detail), incluyendo imagen, nombre, título y descripción.
+Un botón para contactar.
+2. CSS y Diseño
+Estilos Base:
+
+Reiniciamos márgenes y padding (* { margin: 0; padding: 0; }) para asegurar que todos los elementos tengan un diseño uniforme.
+Usamos la fuente Poppins, obtenida a través de Google Fonts, para dar un aspecto profesional y consistente.
+Configuración del Contenedor (.container):
+
+El contenedor .container ocupa el 100% del ancho y alto de la pantalla usando 100vw y 100vh.
+Configuramos display: flex, align-items: center y justify-content: center para centrar la tarjeta en el viewport.
+Diseño de la Tarjeta (.card):
+
+La tarjeta tiene width: 100% y height: 100% para ocupar el espacio completo del contenedor.
+Agregamos box-shadow para una sombra sutil, dando profundidad a la tarjeta.
+El fondo de la tarjeta utiliza un radial-gradient con un esquema de colores en violeta y azul para resaltar visualmente.
+Elementos de Perfil:
+
+Barra de Progreso (.bar, .emptybar, .fillebar): Representa visualmente el progreso cuando la tarjeta está en hover, aumentando el ancho de .fillebar.
+Detalles del Perfil (.profile-detail):
+La imagen tiene un estilo circular (border-radius: 50%) para imitar una foto de perfil.
+Los elementos de texto, como nombre y título, están alineados al centro con márgenes específicos para mantener la estética.
+El botón de contacto tiene un borde redondeado y un fondo oscuro.
+3. Tecnologías y Recursos Utilizados
+HTML5: Para la estructura semántica de la página.
+CSS3: Para estilos de diseño avanzados y gradientes. Incluye propiedades modernas como flex, transition y box-shadow.
+Google Fonts: Poppins para la tipografía.
+Font Awesome (opcional): Para iconos en caso de agregar redes sociales o íconos adicionales.
+Gradientes CSS: Utilizamos radial-gradient en el fondo de la tarjeta para crear un efecto visual atractivo.
+4. Problemas Encontrados y Soluciones
+Problema de Centrado:
+
+Inicialmente, al usar position: absolute en .container, la tarjeta no se centraba correctamente en todas las pantallas. La solución fue usar display: flex en el contenedor.
+Desbordamiento de Contenidos en la Tarjeta:
+
+La imagen y el texto del perfil a veces se desbordaban del contenedor debido a dimensiones fijas. Ajustamos la width de la imagen y cambiamos el padding de la tarjeta para mantener los contenidos dentro.
+Sombra Duplicada en Hover:
+
+Al aplicar sombra en el estado de hover, notamos un cambio brusco en el efecto de la sombra. Lo resolvimos ajustando la transition para una animación suave.
+5. Mejoras Futuras
+Adaptar el diseño para pantallas móviles con media queries.
+Usar componentes CSS adicionales como grid para organizar elementos dentro de la tarjeta.
+Implementar iconos de redes sociales con Font Awesome.

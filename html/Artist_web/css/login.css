@@ -32,7 +32,7 @@ header {
 }
 
 body {
-    background: url('men-4.png') no-repeat;
+    background: url('../images/men-4.png') no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +171,50 @@ body {
     color: var(--primaryHover)
 }
 
-/* forgot password */
+/* contact.html */
+
+.contact h1 {
+    text-align: center;
+    color: var(--primaryHover);
+    
+}    
+.container h2 {
+    text-align: center;
+    color: var(--dark);
+    background: var(--light);
+   
+   
+}
+
+.custom-hover {
+    background: var(--primaryHover);
+    color: var(--dark);
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+
+}
+
+.custom-hover:hover {
+    background: var(--secondHover);
+    transform: scale(1.05);
+
+}
+
+
+.form-control::placeholder {
+    color: var(--dark);
+    opacity: 1; 
+}
+
+/* background images */
+.contact-page{
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+}
+
+
+
+
+
 
 
 

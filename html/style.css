@@ -33,7 +33,7 @@ p {
    z-index: 2;
 } */
 
-.grid-container {
+/* .grid-container {
    display: grid;
    grid-template-areas:
      "header header header"
@@ -62,4 +62,4 @@ p {
  .item {
    background-color: lightgreen;
    padding: 20px;
- }
+ } */

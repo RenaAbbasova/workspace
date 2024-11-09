@@ -224,8 +224,9 @@ body.light .banner .content p {
 
 .btn-left {
     background:  var(--primary);
-    border-radius: 100px 0px 0px 0;
+    border-radius: 100px 100px;
     margin-right: 20px;
+    
 }
 
 .btn-left:hover {
@@ -253,9 +254,9 @@ body.light .banner .content p {
 
 .gallery .item {
     position: relative;
-    width: 200px;
+    width: 200px; 
     overflow: hidden;
-    border-radius: 20%;
+    border-radius: 30%;
     transition: ease-in-out 3s;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(112, 104, 104, 0.87);
@@ -273,7 +274,7 @@ body.light .gallery .item:hover {
 .gallery .item img {
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /
+    object-fit: cover; 
     object-position: center;
 }
 
@@ -313,7 +314,7 @@ body.light .gallery .item:hover {
 
 
 /* Keyframe Animation */
-/* @keyframes move {
+@keyframes move {
     0% { 
         transform: translateY(0); 
     }
@@ -327,7 +328,7 @@ body.light .gallery .item:hover {
 
 
 /* Keyframe Animation */
-/* @keyframes moveInverse {
+ /*@keyframes moveInverse {
     0% { 
         transform: translateY(0); 
     }
@@ -340,7 +341,7 @@ body.light .gallery .item:hover {
 }  */ 
 
 /* Keyframe Animation for Circular Movement */
-/* @keyframes move {
+/*@keyframes move {
     0% {
         transform: translate(0, 0);
     }
@@ -362,8 +363,8 @@ body.light .gallery .item:hover {
 
 .link {
     position: absolute;
-    left: 100px;
-    bottom: 100px;
+    left: 50px;
+    bottom: 50px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -371,15 +372,53 @@ body.light .gallery .item:hover {
     z-index: 1000;
 }
  .link p {
-    color: #3e3d51;
+    color: #08a32f;
  }
 
  .chat {
     padding: 25px;
-    background: #3e3d51;
+    background: var(--second);
     color: #00f946;
     font-size: 2rem;
     border-radius: 50%;
  }
 
-/*** login ***/
+/*** contact.html ***/
+
+.contact h1 {
+    align-items: center;
+}
+
+
+/***about page***/
+.photo {
+    position: relative;
+
+}
+
+.gallery .photo img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center;
+    border-radius: 50%;
+}
+
+.gallery .photo {
+    position: relative;
+    width: 600px;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: ease-in-out 3s;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(211, 12, 12, 0.87);
+}
+
+.gallery .photo:hover {
+    box-shadow: 0 0 100px 20px rgba(32, 28, 28, 0.6); 
+}
+
+.gallery .photo {
+    animation: move 10s linear infinite;
+}    
+
