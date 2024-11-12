@@ -1,0 +1,332 @@
+/* Import "Roboto" font from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@100;300;400;500;700;900%C2%ACdisplay=swap');
+
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: 1s;
+   
+}
+
+/* Theme color variables */
+:root {
+    --dark: #19161f;
+    --light: #f3f3f3;
+    --primary: #b35aab;
+    --primaryHover: #cf6324;
+    --second: #7399c0;
+    --secondHover: #3cca9b;
+    --pastel: #d291bc;
+    --shadow: #707070;;
+}
+
+/* Header styles */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    z-index: 1000;
+}
+
+/* Body styles */
+body {
+    background: var(--second);
+   
+}
+
+/* Navigation menu styles */
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+/* Styles for each list item in the navigation menu */
+.nav li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+/* Styles for the navigation links */
+.nav li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;  /* Stack the navigation links vertically */
+        align-items: center;     /* Center align links */
+    }
+
+    .nav li {
+        margin: -20px 0;  /* Add space between items when stacked */
+    }
+}
+
+/* Hover effect on navigation links */
+.nav li:hover a, body.light .nav li:hover a {
+    color: var(--primaryHover)
+}
+
+/* Gallery container styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 40px 20px 0 20px;
+}
+
+/* Heading styles inside the container */
+.container .heading{
+    width: 50%;
+    padding-bottom: 50px;
+
+}
+
+/* Styles for the heading text */
+.container .heading h3 {
+    font-size: 3em;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--dark);  
+}
+
+/* Styles for the span inside the heading */
+.container .heading h3 span {
+    font-weight: 100;
+}  
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .container .heading h3 {
+        font-size: 2.2em; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container .heading h3 {
+        font-size: 1.8em; /* Adjust font size for mobile */
+    }
+    .container .heading h3 span {
+        font-size: inherit; /* Keep span font size in sync */
+    }
+}
+
+/* Styles for the image gallery box */
+.container .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}  
+
+/* Styles for each image section (class "dream") */
+.container .box .dream {
+    display: flex;
+    flex-direction: column;
+    width: 32.5%;
+}
+
+/* Styles for images inside the "dream" section */
+.container .box .dream img {
+    padding-bottom: 15px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Styles for /* Responsive Styles for Banner Content */
+@media (max-width: 768px) {
+    .banner .content {
+        width: 80%; /* Increase the width of the content on medium screens */
+    }
+
+    .banner .content .title {
+        font-size: 2.5rem; /* Reduce title size on tablets and medium screens */
+    }
+
+    .banner .content p {
+        font-size: 1.1rem; /* Slightly smaller paragraph font size */
+        margin-bottom: 30px;
+    }
+}
+/* Styles for the link inside the "View More" button */
+.container .btn a {
+    color: var(--light);
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bolder;
+    letter-spacing: 3px;
+}
+
+
+/********************************************** casting.html *****************************************/
+
+/* Container for the casting section */
+.container-casting {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card styling used for each individual casting item */
+.card {
+    display: flex;
+    height: 350px;
+    cursor: pointer;
+    width: 250px;
+    position: relative;
+    left: 0px;
+    box-shadow: -1rem 0 3rem var(--primary);
+    margin-left: -50px;
+    border-radius: 10px;
+    transition: 0.4s ease-out; /* Only one transition declaration */
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, var(--second) 14.2%, var(--secondHover) 89.5%);
+    padding: 20px; /* Ensures content doesn't touch the edges */
+    overflow: hidden;
+    background-color: var(--light);
+}
+
+/* Ensures a little gap between the cards (except the first one) */
+.card:not(:first-child) {
+    margin-left: -80px;
+}
+
+/* Hover effect on card */
+.card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+    background-image: radial-gradient(circle 523px at 7.1% 19.3%, var(--primary), var(--primaryHover), #00008B);
+
+
+}
+
+/* Hover effect on card */
+.card:hover~ .card {
+    position: relative;
+    left: 50px;
+    transform: translateY(-20px);
+    transition: 4s ease-out;
+
+}
+
+/* Styling for the title inside the card */
+.title {
+    color: var(--dark);
+    font-size: 12px;
+    font-family: 300;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+ 
+/* Styling for the progress bar inside the card */
+.bar {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    height: 3px;
+    width: 250px;
+    
+}
+
+.emptybar {
+    background-color: var(--second);
+    width: 75%;
+    height: 100%;
+}
+
+.fillebar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    width: 0%;
+    height: 100%;
+    background: var(--primaryHover);
+    transition: 0.4s ease-out;
+}
+
+.card:hover .fillebar {
+    width: 150px;
+    transition: 0.4s ease-out;
+
+}
+
+/* Profile details inside the card */
+.profile-detail {
+    width: 100%;
+    position: absolute;
+}
+
+/* Image inside the profile detail (circular avatar) */
+.profile-detail img {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 68px;
+    left: 20px;
+    border-radius: 50%;
+
+}
+
+/* Name and position inside the profile details */
+.profile-detail .name {
+    font-size: 12px;
+    font-weight: 600;
+    position: absolute;
+    top: 156px;
+    left: 20px;
+    color: var(--dark);
+}
+
+.profile-detail .post-title {
+    position: absolute;
+    top: 194px;
+    left: 20px;
+    color: var(--dark);
+    font-size: 11px;
+
+ }
+
+/* Description of the post in the profile */
+.profile-detail .post-description {
+    position: absolute;
+    top: 225px;
+    left: 20px;
+    color: var(--dark);
+    font-size: 10px;
+    padding-right: 60px;
+
+}
+
+/* Button styling inside the card */
+.profile-detail .button {
+    font-size: 10px;
+    padding: 5px 0px;
+    position: absolute;
+    top: 300px;
+    left: 20px;
+    width: 135px;
+    border: 1px solid var(--dark);
+    color: var(--primaryHover);
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--dark);
+}

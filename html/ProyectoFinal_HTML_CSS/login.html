@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <!-- Linking Boxicons for adding icons, such as user and lock icons used in the form -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<header>
+      <!-- Navigation Links -->
+      <ul class="nav">
+        <li><a href="index.html"><strong>Home</strong></a></li>
+        <li><a href="about.html"><strong>About Us</strong></a></li>
+        <li><a href="actores.html"><strong>Actors</strong></a></li>
+        <li><a href="contact.html"><strong>Contact</strong></a></li> 
+        <li><a href="casting.html"><strong>Casting</strong></a></li> 
+      </ul>
+</header>
+
+<body>
+    <!-- Wrapper div to center the form and apply the container styles -->
+    <div class="wrapper">
+        <form action="" class="action">
+            <h1 class="Login">Login</h1>
+
+            <!-- Input Box for Username (Email or Username) -->
+            <div class="input-box">
+                <input type="email" id="username" name="username" placeholder="Email or Username" required class="text" />
+                <i class='bx bx-user'></i>
+                <span id="usernameError" style="color: red; display: none;">Please enter a valid email address.</span>
+            </div>
+
+            <!-- Input Box for Username -->
+           <!--  <div class="input-box">
+                <input type="text" placeholder="Username" required class="text">
+                <i class='bx bx-user'></i>
+            </div>  -->
+
+             <!-- Input Box for Password -->
+             <div class="input-box">
+                <input type="password" id="password" name="password" placeholder="Password" required class="text" />
+                <i class='bx bx-lock'></i>
+                <span id="passwordError" style="color: red; display: none;">Password must be at least 6 characters.</span>
+            </div>
+
+             <!-- Input Box for Password -->
+            <!-- <div class="input-box">
+                <input type="password" placeholder="Password" required class="text">
+                <i class='bx bx-lock'></i>
+            </div> -->
+
+            <!-- Section for remember me checkbox and forgotten password link -->
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="forgot-password.html">Forgot password?</a> 
+            </div>
+
+            <!-- Submit Button for Login -->
+            <button type="submit" class="btn">Login</button>
+            <div class="register-link">
+                <p>Don't have an accoun? <a href="login.html">Register</a></p>
+            </div>
+        </form>
+    </div>
+     <!-- JavaScript for Interactivity -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
+

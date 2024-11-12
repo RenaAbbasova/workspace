@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@100;300;400;500;700;900%C2%ACdisplay=swap');
+
+/* Base styling for all elements to reset margin, padding, and set box-sizing to border-box for consistent layout */
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: 1s;
+   
+}
+
+/* Root CSS variables for colors, allowing easy customization across the site */
+:root {
+    --dark: #19161f;
+    --light: #f3f3f3;
+    --primary: #b35aab;
+    --primaryHover: #cf6324;
+    --second: #7399c0;
+    --secondHover: #3cca9b;
+}
+
+/* Header styling: Positioned absolutely at the top with flex layout to space items evenly */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    z-index: 1000;
+}
+
+/* Styling the body with a background image, centering content vertically and horizontally */
+body {
+    background: url('../images/men-4.png') no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+}
+
+/* Wrapper class for centering and styling the login form with blur effect and shadow */
+.wrapper {
+    width: 420px;
+    background: transparent;
+    color: var(--light);
+    border-radius: 10px;
+    padding: 30px 40px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px var(--primary);
+
+}
+
+/* Responsive Styles for Banner Content */
+@media (max-width: 768px) {
+    .banner .content {
+        width: 80%; /* Increase the width of the content on medium screens */
+    }
+
+    .banner .content .title {
+        font-size: 2.5rem; /* Reduce title size on tablets and medium screens */
+    }
+
+    .banner .content p {
+        font-size: 1.1rem; /* Slightly smaller paragraph font size */
+        margin-bottom: 30px;
+    }
+}
+    
+    
+
+
+/* Input boxes styling within the wrapper for consistent input style */
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+/* Styling for input fields with transparent background, rounded borders, and shadow */
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid  var(--light);
+    border-radius: 40px;
+    font-size: 16px;
+    color: var(--light);
+    padding: 20px 45px 20px 20px;
+    box-shadow: 0 0 10px var(--light);
+    
+}
+
+/* Placeholder text color for input fields */
+.input-box input::placeholder {
+    color: var(--light)
+}
+
+/* Styling for icons within input fields */
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+/* Checkbox and link styling within the remember-forgot section */
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15 0 15px;
+}
+
+/* Custom styling for checkbox */
+.remember-forgot label input {
+   accent-color: var(--light);
+   margin-right: 3px;
+
+}
+
+
+/* Styling for forgot password link */
+.remember-forgot a {
+    color: var(--dark);
+    text-decoration: none;
+
+}
+
+/* Hover effect for forgot password link */
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Button styling for submit button */
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: var(--light);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--dark);
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+
+/* Styling for registration link section */
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+    margin: 20px 0 15px;
+}
+
+/* Link styling within registration section */
+.register-link p a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hover effect for registration link */
+.register-link p a:hover {
+    text-decoration: underline;
+
+}
+
+
+/* Navigation menu styling */
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+/* Styling for navigation items */
+.nav li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+/* Link styling in the navigation bar */
+.nav li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;  /* Stack the navigation links vertically */
+        align-items: center;     /* Center align links */
+    }
+
+    .nav li {
+        margin: -20px 0;  /* Add space between items when stacked */
+    }
+}
+
+.nav li:hover a, body.light .nav li:hover a {
+    color: var(--primaryHover)
+}
+
+/*** contact.html Specific Styles ***/
+
+
+/* Contact page heading styling */
+.contact h1 {
+    text-align: center;
+    color: var(--primaryHover);
+    
+}   
+
+/* For smaller screens, adjust the font size and padding */
+@media (max-width: 768px) {
+    .contact h1 {
+        font-size: 1.5rem; /* Slightly smaller font */
+        padding: 8px;
+    }
+}
+
+
+/* Styling for section headings in the container */
+.container h2 {
+    text-align: center;
+    color: var(--dark);
+    background: var(--light);
+}
+
+
+/* Hover effect for custom elements */
+.custom-hover {
+    background: var(--primaryHover);
+    color: var(--dark);
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+/* Hover effect for elements with custom-hover class */
+.custom-hover:hover {
+    background: var(--secondHover);
+    transform: scale(1.05);
+
+}
+
+/* Styling for placeholders within forms */
+.form-control::placeholder {
+    color: var(--dark);
+    opacity: 1; 
+}
+
+/* Background image for contact page */
+.contact-page{
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+}
+
+
+/* Styling for the map section */
+.map {
+    padding: 20px;
+    background-color: var(--light);
+}
+
+.map h2 {
+    text-align: center;
+    color: var(--dark);
+}
+
+/* Responsive iframe styling */
+.map iframe {
+    width: 100%;
+    max-width: 100%; /* Limits the iframe to container width */
+    height: 450px; /* Default height */
+}
+
+/* Adjust iframe height for smaller screens */
+@media (max-width: 768px) {
+    .map iframe {
+        height: 300px; /* Smaller height on tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .map iframe {
+        height: 250px; /* Smaller height on mobile */
+    }
+}
+
+
+
+
+
+
+
+
+
+

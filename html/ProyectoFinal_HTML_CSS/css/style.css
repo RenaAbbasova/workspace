@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@100;300;400;500;700;900%C2%ACdisplay=swap');
+
+/* Reset and Global Styles */
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Theme Colors */
+:root {
+    --dark: #19161f;
+    --light: #f3f3f3;
+    --primary: #b35aab;
+    --primaryHover: #cf6324;
+    --second: #7399c0;
+    --secondHover: #3cca9b;
+    --pastel: #d291bc;
+    --shadow: #707070;;
+}
+
+/* Body Styling */
+body {
+    position: relative;
+    background: var(--dark);
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: 1s;
+}
+
+/* Light Mode Body */
+body.light {
+    background: var(--light);
+
+}
+
+/* Header Styling */
+header {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 1000;
+}
+
+
+/* Header Left and Right Sections */
+.header-left,
+.header-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+}
+
+/* Logo Styling */
+.logo {
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+.vanessa {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 60px; 
+    color: var(--pastel); 
+    text-shadow: 3px 3px 6px var(--dark);
+    margin-bottom: 10px; 
+}
+
+
+
+.representation, .scale {
+    font-size: 20px; /* Tamaño de fuente para el texto inferior */
+    margin: 0;
+}
+
+.representation {
+    font-weight: bold;
+}
+
+.scale {
+    font-style: italic;
+}
+
+/* Light Mode Colors for Logo */
+body.light .vanessa,
+body.light .representation,
+body.light .scale {
+    color: var(--dark); 
+}
+
+/* Hover effect for the logo and its text */
+.logo:hover .vanessa,
+.logo:hover .representation,
+.logo:hover .scale {
+    color: var(--primary); 
+    transition: color 0.3s; 
+}
+
+/* Light Mode Logo Text Color */
+body.light .logo {
+    color: var(--dark)
+}
+
+/* Navigation Styling */
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+.nav li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.nav li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Light Mode Navigation Text Color */
+body.light .nav li a {
+    color: var(--dark)
+}
+
+.nav li:hover a, body.light .nav li:hover a {
+    color: var(--primaryHover)
+}
+
+/* Sign-in Button Styling */
+.signin {
+    font-size: 1rem;
+    color: var(--light);
+    font-weight: 600;
+    text-decoration: underline;
+    padding: 10px 25px;
+    background: var(--primary);
+    border-radius: 50px 50px; 
+    transition: 0.3s;
+}
+
+.signin:hover {
+    background: var(--primaryHover);
+}
+
+/* Icons for Light and Dark Modes */
+.icon-light {
+    font-size: 1.6rem;
+    color: var(--light)
+}
+
+.icon-dark {
+    color: var(--dark);
+    font-size: 1.6rem;
+    display: none;
+}
+
+/* Toggle Icon Visibility in Light Mode */
+body.light .icon-light {
+    display: none;
+}
+
+body.light .icon-dark {
+    display: block;
+}
+
+/* Banner Section Styling */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+
+.banner .content {
+    width: 50%;
+}
+
+.banner .content .title {
+    font-size: 3rem;
+    color: var(--light);
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+
+.banner .content p {
+    color: var(--light);
+    font-size: 250;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    transition: 5s;
+    line-height: 2.0; 
+} 
+
+
+
+/* Light Mode Colors for Banner Content */
+body.light .banner .content .title {
+    color: var(--dark)
+}
+
+body.light .banner .content p {
+    color: var(--dark)
+}
+
+/* Banner Button Styling */
+.banner .content .button a {
+    text-decoration: none;
+    color: var(--light);
+    padding: 15px 20px;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.btn-left {
+    background:  var(--primary);
+    border-radius: 100px 100px;
+    margin-right: 20px;
+    
+}
+
+.btn-left:hover {
+    background: var(--primaryHover);
+}
+
+.btn-right {
+    background: var(--second);
+    border-radius: 0px 0 100px 0px;
+}
+
+.btn-right:hover {
+    background: var(--secondHover);
+}
+
+
+
+/* Gallery Section Styling */
+.banner .gallery {
+    width: 50%;
+    height: 100%;
+    padding: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+
+.gallery .item {
+    position: relative;
+    width: 200px; 
+    overflow: hidden;
+    border-radius: 30%;
+    transition: ease-in-out 3s;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(112, 104, 104, 0.87);
+}
+
+/* Hover Effect for Gallery Items */
+.gallery .item:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6); 
+}
+
+body.light .gallery .item:hover {
+    box-shadow: 0 0 30px var(--shadow);
+
+}
+
+.gallery .item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Gallery Animations */
+.gallery .item:nth-of-type(1) {
+    grid-row: 1/4; 
+    animation: move 10s linear infinite;
+}
+
+.gallery .item:nth-of-type(2) {
+    grid-row: 2/5; 
+    animation: moveInverse 10s linear infinite;/*midle foto*/
+}
+
+.gallery .item:nth-of-type(3) {
+    grid-row: 3/6; 
+    animation: move 10s linear infinite;
+}
+.gallery .item:nth-of-type(4) {
+    animation: moveInverse 10s linear infinite;/*midlle foto*/
+}
+.gallery .item:nth-of-type(5) {
+    animation: move 10s linear infinite;
+}
+
+.gallery .item:nth-of-type(6) {
+    animation: move 10s linear infinite;
+}
+.gallery .item:nth-of-type(7) {
+    animation: move 10s linear infinite;
+}
+.gallery .item:nth-of-type(8) {
+    animation: move 10s linear infinite;
+}
+.gallery .item:nth-of-type(9) {
+    animation: moveInverse 10s linear infinite; /*midle foto*/
+}
+
+
+/* Keyframe Animation for Gallery Items */
+@keyframes move {
+    0% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(100px); 
+    }
+    100% { 
+        transform: translateY(0); 
+    }
+}
+
+/* WhatsApp Link Styling */
+.link {
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 1000;
+}
+ .link p {
+    color: #08a32f;
+ }
+
+ .chat {
+    padding: 25px;
+    background: var(--second);
+    color: #00f946;
+    font-size: 2rem;
+    border-radius: 50%;
+}
+
+
+
+/*** Styles for specific pages ***/
+
+
+/* Contact.html Page */
+.contact h1 {
+    align-items: center;
+}
+
+
+/* about.html page */
+.photo {
+    position: relative;
+
+}
+
+.gallery .photo img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center;
+    border-radius: 50%;
+}
+
+.gallery .photo {
+    position: relative;
+    width: 600px;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: ease-in-out 3s;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.gallery .photo:hover {
+    box-shadow: 0 0 100px 20px var(--dark); 
+}
+
+.gallery .photo {
+    animation: move 10s linear infinite;
+}    
+
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-left, .header-right {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav {
+        gap: 20px;
+    }
+
+    .signin {
+        padding: 10px 20px;
+    }
+}
+
+/* Responsive Banner Section */
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
+    .banner .content {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .banner .content .title {
+        font-size: 2rem;
+    }
+
+    .banner .content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .banner .gallery {
+        width: 100%;
+        padding: 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .gallery .item {
+        width: 100%;
+        border-radius: 15%;
+    }
+}
+
+/* Smaller screens: Adjust gallery to single column */
+@media (max-width: 480px) {
+    .banner .gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .content .title {
+        font-size: 1.5rem;
+    }
+
+    .content p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* Adjustments for WhatsApp link */
+@media (max-width: 768px) {
+    .link {
+        left: 10px;
+        bottom: 10px;
+        gap: 10px;
+    }
+    .chat {
+        padding: 20px;
+        font-size: 1.8rem;
+    }
+}
+
+/* Responsive Logo */
+@media (max-width: 768px) {
+    .logo {
+        text-align: center;
+        font-size: 2rem; /* Smaller logo font size on mobile */
+        margin-bottom: 10px;
+    }
+
+    .vanessa {
+        font-size: 2.5rem; /* Adjust font size of the main logo text */
+        text-shadow: 2px 2px 4px var(--dark);
+    }
+
+    .representation, .scale {
+        font-size: 1rem; /* Adjust size for the subtitle */
+    }
+}
+
+
+/* Responsive Design for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+    .banner .content .title {
+        font-size: 2.5rem;  /* Slightly smaller font size on tablets */
+    }
+
+    .banner .content p {
+        font-size: 1.1rem;  /* Adjust paragraph font size */
+    }
+
+    /* Ensure content takes full width on smaller screens */
+    .banner .content {
+        width: 80%;  /* Adjust width to allow for more space on the screen */
+    }
+}
+
+
+
