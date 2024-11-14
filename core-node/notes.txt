@@ -1,0 +1,11 @@
+js--> javascript engibe(v8)
+2008 started chrome launched brouser with v8 engine 
+2009 launched node , run v8 run outside of brouser (Ryan Dahl): original nodes.js presentation
+node.js is a javascript runtime built on chrome's v8 javascript engine
+what is javascript runtime?
+js -> v8 Engine <-> libuv( is a multi-platform C library that provides support for asynchronous i/o based on event loops)
+ 
+ ctl + c twice or .exit (to exit from node)
+
+
+generar carpeta public para el proyecto
