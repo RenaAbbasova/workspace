@@ -1,11 +1,185 @@
-js--> javascript engibe(v8)
-2008 started chrome launched brouser with v8 engine 
-2009 launched node , run v8 run outside of brouser (Ryan Dahl): original nodes.js presentation
-node.js is a javascript runtime built on chrome's v8 javascript engine
-what is javascript runtime?
-js -> v8 Engine <-> libuv( is a multi-platform C library that provides support for asynchronous i/o based on event loops)
- 
- ctl + c twice or .exit (to exit from node)
+1. Historia y Conceptos Clave
+JavaScript (JS) y V8
+JavaScript (JS): Un lenguaje de programación creado originalmente para ejecutarse en navegadores.
+V8 Engine:
+Un motor de JavaScript desarrollado por Google.
+Convierte JavaScript en código máquina para un rendimiento óptimo.
+2008: Chrome lanza su navegador impulsado por V8.
+Node.js
+2009: Ryan Dahl presentó Node.js, un entorno para ejecutar JavaScript fuera del navegador.
+Node.js está construido sobre el motor V8 de Chrome.
+Node.js es un runtime de JavaScript, que incluye:
+Motor V8 para ejecutar JS.
+Biblioteca libuv para operaciones de I/O asíncronas.
 
 
-generar carpeta public para el proyecto
+
+2. ¿Qué es un Runtime de JavaScript?
+Un runtime es un entorno que permite ejecutar código JavaScript.
+En Node.js, el runtime incluye:
+Motor V8: Ejecuta JavaScript.
+libuv: Biblioteca en C que maneja I/O asíncrono (event loop).
+APIs integradas: Funcionalidades como fs, http, path, y crypto.
+
+
+
+3. Características Básicas de Node.js
+REPL (Read, Eval, Print, Loop):
+Herramienta interactiva para ejecutar código.
+Salir de REPL: Ctrl + C dos veces o usar .exit.
+Ejecutar un archivo JavaScript:
+bash
+Copy code
+node archivo.js
+Generar estructura básica del proyecto:
+Crear una carpeta public/ para almacenar archivos de proyecto (HTML, CSS, JS, etc.).
+
+
+
+4. Diferencias entre Node.js y JavaScript en el Navegador
+Node.js	Navegador
+global	window
+process, module, require	document, history
+Ejecuta en el servidor	Ejecuta en el cliente
+Acceso al sistema (archivos, red)	DOM y APIs del navegador
+
+
+
+5. Comunicación Cliente-Servidor
+Protocolo HTTP/HTTPS: Permite que el cliente (navegador) y el servidor (Node.js) se comuniquen.
+
+
+
+6. Internals de Node.js
+Componentes Internos
+APIs integradas:
+Ejemplo: fs para manejar archivos, http para crear servidores.
+Bindings en C++:
+Conecta V8 con libuv.
+libuv:
+Maneja operaciones de I/O asíncronas con un event loop.
+Arquitectura Interna
+csharp
+Copy code
+JavaScript → V8 Engine → libuv → Operaciones asíncronas (fs, red, temporizadores)
+Carpetas Clave del Proyecto Node.js
+lib/: Contiene los módulos en JavaScript.
+src/: Contiene el código fuente en C++.
+Ejemplo: node_file.cc (archivo fuente .cc, típico de C++).
+libuv
+Biblioteca de soporte multi-plataforma.
+Maneja I/O asíncrono con un event loop y un thread pool.
+Documentación oficial: libuv.org.
+
+
+
+7. Sincronía vs. Asincronía en JavaScript
+Síncrono:
+Las tareas se ejecutan una tras otra, bloqueando la ejecución hasta que terminen.
+Asíncrono:
+Permite ejecutar tareas en segundo plano sin bloquear el flujo principal.
+Mecanismos en JavaScript:
+Callbacks:
+javascript
+Copy code
+fs.readFile('archivo.txt', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+});
+Promises:
+javascript
+Copy code
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data));
+Async/Await:
+javascript
+Copy code
+async function obtenerDatos() {
+    const respuesta = await fetch('https://api.example.com/data');
+    const datos = await respuesta.json();
+    console.log(datos);
+}
+obtenerDatos();
+
+
+
+8. El Event Loop de Node.js
+Event Loop:
+Responsable de gestionar las tareas asíncronas.
+Ejecuta callbacks cuando las operaciones de I/O están completas.
+Fases del Event Loop:
+Timers:
+Maneja setTimeout y setInterval.
+I/O Callbacks:
+Procesa eventos de I/O (ejemplo: lectura de archivos).
+Idle/Prepare:
+Interno de Node.js.
+Poll:
+Recupera nuevos eventos de I/O.
+Check:
+Ejecuta callbacks de setImmediate.
+Close Callbacks:
+Maneja eventos de cierre (socket.on('close')).
+
+
+
+9. Otras Notas Importantes
+Versión LTS (Long-Term Support): Estable y recomendada para producción.
+Nodo de Proceso:
+process: Contenedor que maneja la memoria y las variables de entorno del programa.
+
+
+
+Recursos Recomendados
+Node.js API Documentation
+Node.js GitHub Repository
+libuv Official Documentation
+
+
+apache and nginx
+
+best to use of node:
+server
+
+cpu speack lower language
+node not good at video, machine leaning
+
+
+observe pattern in the node
+subject notifies observers when event is coming
+
+listener is callback functions
+
+
+We use callback functions in programming, particularly in JavaScript, to handle tasks that take time to complete or need to execute after something else happens.
+ A callback function is a function passed as an argument to another function, and it's called after the completion of the operation.
+
+
+modules
+request.js, response.js, http.js  
+
+tls
+ECMAScript 
+
+import {...} from './request.mjs'
+consr [....] (./request)
+
+extencion ECMAScript modules .mjs its good to use with import 
+console.log(requare.cache)
+
+file index.js
+
+package.json:
+collection 'npmjs.com'-collection of packages
+postgres package
+
+create first package 
+modele(file) & package(collection of modules)
+
+npm init -y
+npm install axios
+
+modele axios
+
+semver.npmjs.com  --- ckecks match versions it is a calculator ex: use ^ or ~
