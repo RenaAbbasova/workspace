@@ -183,3 +183,4 @@ npm install axios
 modele axios
 
 semver.npmjs.com  --- ckecks match versions it is a calculator ex: use ^ or ~
+nodemon - package
