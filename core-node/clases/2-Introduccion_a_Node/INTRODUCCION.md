@@ -216,6 +216,8 @@ const fs = require('fs').promises; // points extra if you fix this ;)
 const filePath = './file.txt';
 
 // `async` before the parent function
+async function main() {
+
 try {
   // `await` before the async method
   const data = await fs.readFile(filePath, 'utf-8');
@@ -225,6 +227,10 @@ try {
   console.log('An error occurred...: ', error);
 }
 console.log("I'm the last line of the file!");
+}
+
+// Call the async function
+main();
 ```
 
 ### Callbacks

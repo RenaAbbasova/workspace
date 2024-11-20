@@ -184,3 +184,92 @@ modele axios
 
 semver.npmjs.com  --- ckecks match versions it is a calculator ex: use ^ or ~
 nodemon - package
+
+*************************************************************************
+- TAREA OPCIONAL (para subir nota, investigar como usar dominios locales)
+### Objetivos de aprendizaje
+
+Al término de este módulo, sabrás:
+
+- Explicar qué es Node.js.
+- Entender el funcionamiento de Node.js y su arquitectura de eventos.
+- Crear y ejecutar un script de Node.js desde la línea de comandos.
+- Revisar técnicas asíncronas: devoluciones de llamada (callbacks), promesas y async/await.
+
+**Con Node.js puedes construir:**
+
+- Servidores web HTTP
+- Microservicios o backends de API sin servidor
+- Interfaces de línea de comandos (CLI)
+- Bibliotecas de código y utilidades
+- Scripts de automatización
+
+### Rendimiento con operaciones asíncronas
+
+Node.js aprovecha la arquitectura controlada por eventos de JavaScript para un alto rendimiento. Las técnicas asíncronas incluyen:
+
+- **Async/await (recomendado):** Usa `async` y `await` para obtener resultados de operaciones asíncronas.
+- **Callbacks:** Funciones que se pasan como argumentos y se ejecutan al completar una tarea.
+- **Promesas:** Objetos que representan la eventual finalización (o fallo) de una operación asíncrona.
+
+## Prueba de conocimientos
+
+1. ¿Qué es Node.js?
+
+   - Un entorno de ejecución de JavaScript.
+
+2. ¿Cómo maneja Node.js las tareas simultáneas?
+
+   - Usa un solo bucle de eventos.
+
+3. ¿Cuándo es Node.js una buena opción?
+   - Cuando la aplicación requiere un servidor sin bloqueo controlado por eventos.
+
+   <!-- easter egg two - understand and document the use of .bin npx -g and other similar concepts -->
+
+Las dependencias globales se instalan en un directorio de todo el sistema, no en el nivel de instrucción node_modules. Sin embargo, los paquetes globales pueden desordenar el sistema.
+
+El comando npx lo resuelve instalando temporalmente paquetes. Use npx <name> para capturar un paquete, ejecutarlo y, a continuación, quitarlo.
+
+Después de la instalación, el directorio del proyecto tiene el siguiente aspecto:
+
+```bash
+package.json
+node_modules/
+<name of dependency>/
+<files included in the dependency>
+src
+index.js
+```
+
+### Limpieza de dependencias
+
+Si ya no necesita un paquete, quítelo. La eliminación de una dependencia mantiene el proyecto limpio y ahorra espacio.
+
+Esta limpieza es especialmente importante para las aplicaciones de página única (SPA), como Angular, React o Vue como ejemplos conocidos, pero se aplica en general.
+
+Estas aplicaciones agrupan y comprimen el código en un archivo o varios servidos al explorador.
+
+Cuanto mayor sea el archivo, más tiempo tardará en cargarse, lo que puede crear una mala experiencia a los usuarios.
+
+Hay dos maneras de limpiar las dependencias que ya no se necesitan:
+
+- **Desinstalar:** para desinstalar un paquete, ejecute `npm uninstall <name of dependency>`. Este comando quita el paquete del archivo de manifiesto de `package.json` y de la carpeta `node_modules`.
+
+- **Eliminación:** Use `npm prune` para quitar todas las dependencias no incluidas en la lista `node_modules`.
+
+La eliminación es útil cuando desea quitar varias dependencias sin ejecutar la desinstalación de cada una o todas necesitando reinstalar de nuevo las necesarias.
+
+
+node inspect <YOUR_SCRIPT>.js
+
+| c           | Continúa la ejecución hasta el punto de interrupción siguiente o hasta el final del programa.                                                                                                                               |
+| next        | Depurar paso a paso por **procedimientos**. Este comando es similar al comando step, con la diferencia de que si la siguiente línea de código es una llamada a una función, ejecuta la función sin entrar en ella.          |
+| s           | Depura paso a paso por **instrucciones**. Este comando es similar al comandonext, con la diferencia de que si la siguiente línea de código es una llamada de función, va a la primera línea del código de esta función.     |
+| sb()        | Agrega un punto de interrupción en la línea actual.                                                                                                                                                                         |
+| exec <EXPR> | Evalúa una expresión en el contexto de ejecución actual. Este comando es útil para ayudarle a obtener información sobre el estado actual. Por ejemplo, puede obtener el valor de una variable denominada i mediante exec i. |
+| Ctrl + D    | Detiene el depurador.  
+
+
+The issue where the debugger doesn't pause even with the debugger statement is
+likely due to how your code is executed and finished before the debugger properly attaches. Here's a step-by-step guide to ensure the debugger works as expected:

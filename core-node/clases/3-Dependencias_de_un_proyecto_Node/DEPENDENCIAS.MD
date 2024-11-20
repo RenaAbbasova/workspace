@@ -250,7 +250,6 @@ El archivo package.json ahora debería ser similar a este código:
   "description": "HTTP API to manage items from the ANFORA database",
   "main": "index.js",
   "dependencies": {},
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -1016,7 +1015,7 @@ Comprobación de conocimientos
 
 - [ ] Ejecute npm install jest:
 
-- [ ] Ejecute npm install jest --save-dev:
+- [x] Ejecute npm install jest --save-dev:
 
 - [ ] Mediante la ejecución de npm install jest --save.
 
@@ -1024,7 +1023,7 @@ Comprobación de conocimientos
 
 2. ¿Cuál es la razón principal para usar npx?
 
-- [ ] La dependencia se descarga directamente en el proceso de Node.js y se quita después de que se ejecute el comando. Esta herramienta resulta útil cuando se quieren ejecutar comandos con poca frecuencia.
+- [x] La dependencia se descarga directamente en el proceso de Node.js y se quita después de que se ejecute el comando. Esta herramienta resulta útil cuando se quieren ejecutar comandos con poca frecuencia.
 
 - [ ] La instalación de dependencias mediante npx es más segura que la instalación global de estas.
 
@@ -1038,7 +1037,7 @@ Comprobación de conocimientos
 
 - [ ]Busque la entrada en dependencies o devDependencies. Establezca la entrada para que se parezca a esta: "<library>": "1.x.0"
 
-- [ ]Busque la entrada en dependencies o devDependencies. Establezca la entrada para que se parezca a esta: "<library>": "1.0.x"
+- [x]Busque la entrada en dependencies o devDependencies. Establezca la entrada para que se parezca a esta: "<library>": "1.0.x"
 
 - [ ]Busque la entrada en dependencies o devDependencies. Establezca la entrada para que se parezca a esta: "<library>": "^1.0.x"
 
@@ -1050,7 +1049,7 @@ Comprobación de conocimientos
 
 - [ ]start
 
-- [ ]start, test, lint, build
+- [x]start, test, lint, build
 
 ---
 
