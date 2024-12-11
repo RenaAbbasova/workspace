@@ -273,3 +273,6 @@ node inspect <YOUR_SCRIPT>.js
 
 The issue where the debugger doesn't pause even with the debugger statement is
 likely due to how your code is executed and finished before the debugger properly attaches. Here's a step-by-step guide to ensure the debugger works as expected:
+
+
+fig

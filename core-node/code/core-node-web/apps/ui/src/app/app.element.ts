@@ -5,7 +5,7 @@ export class AppElement extends HTMLElement {
   public static observedAttributes = [];
 
   public makeHTTPRequest = async () => {
-    const response = await fetch('http://localhost:8080/api/users', {
+    const response = await fetch('http://localhost:4200/api/users', {
       mode: 'no-cors',
       method: 'GET',
       headers: {

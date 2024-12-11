@@ -52,7 +52,8 @@ core-node-web/
 │       │   ├── app/
 │       │   │   ├── app.element.ts       # Componente principal
 │       │   │   ├── app.element.spec.ts  # Tests
-│       │   │   └── app.element.css      # Estilos
+│       │   │   └── app.element.css      # Estilosnpx create-nx-workspace@latest core-node-web --preset=web-components
+<!--  -->
 │       │   ├── assets/                  # Recursos estáticos
 │       │   ├── environments/            # Configuraciones por entorno
 │       │   ├── index.html
