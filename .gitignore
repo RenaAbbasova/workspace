@@ -94,3 +94,5 @@ bower_components/
 
 # ignore databases
 databases/clase1/compose-postgres/pgadmin/
+databases/clase1/compose-postgres/northwind.sql
+databases/clase4/
