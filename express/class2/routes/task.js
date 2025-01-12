@@ -17,3 +17,7 @@ router.get("/:id", (req, res, next) => {
 });
 
 module.exports = router;
+
+/*importamos el modulo express, creamos una instancia de router atravez de un builtin middleware express.router(). 
+executa cada vez que resibe una solicitud y imprime el tiempo de la solicitud. esta function middlewate executa cada ves que reciba cualquier 
+solicitud http en una ruta que coincide con el patron id. */
