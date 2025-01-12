@@ -1,12 +1,31 @@
-# Node.js
+# Node modules
 node_modules/
 
 # Logs
+logs
 *.log
+npm-debug.log*
 
-# OS generated files
+# Dependency directories
+jspm_packages/
+
+# Operating system files
 .DS_Store
 Thumbs.db
 
-# Environment variables
+# Build directories
+dist/
+build/
+
+# Environment variable files
 .env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
