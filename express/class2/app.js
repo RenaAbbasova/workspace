@@ -33,7 +33,7 @@ app.use(
     next();
   }
 );
-
+// Define una ruta para manejar solicitudes HTTP de tipo POST
 // Ejercicio 1: Ruta POST para manejar JSON, texto y URL-encoded
 app.post("/test", (req, res) => {
   const title = req.body.title || "Sin título";

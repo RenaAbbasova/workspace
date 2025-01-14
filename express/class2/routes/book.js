@@ -4,7 +4,6 @@ const router = express.Router();
 // Ruta para obtener todos los libros
 router.get('/', (req, res) => {
     res.send('List of books');
-    next();
 });
 
 
