@@ -5,9 +5,11 @@ module.exports = {
   getAll() {
     return db("students");
   },
+  
   getById(id) {
-    return db("students").first().where({ id: id})
+    return db("students").where({ id }).first();
   },
+
   insert(data) {
     return db("students").insert(data);
   },

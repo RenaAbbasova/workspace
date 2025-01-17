@@ -3,9 +3,9 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
- module.exports = {
+module.exports = {
   development: {
-    client: "pg",
+    client: 'pg',
     connection: {
       database: "express-db-knex",
       user: "postgres",
@@ -14,7 +14,6 @@
     pool: {
       min: 0,
       max: 5,
-    },
-  },
- };
- 
+    }
+  }
+};
