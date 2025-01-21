@@ -271,17 +271,21 @@ app.post('/api/users/:id/active', (req, res) => {
     if (!user) {
       return res.status(404).send('User not found');
     }
+
+    if (user.active) {
+      return res.status(400).send('User is already active');
+    }
     
-    // Update 'active' to true
     user.update({ active: true })
       .then(updatedUser => {
-        res.json(updatedUser); // Return the updated user data
+        res.json(updatedUser); 
       })
       .catch(err => {
-        res.status(500).send(err.message); // Handle any errors
+        res.status(500).send(err.message);
       });
   });
 });
+
 
 // Endpoint to get the 'active' field of a user (GET /api/users/:id/active)
 app.get('/api/users/:id/active', (req, res) => {

@@ -56,6 +56,7 @@ curl -X PUT http://localhost:3000/api/users/1 \
 
 curl -X DELETE http://localhost:3000/api/users/1
 curl -X DELETE http://localhost:3000/api/users/4
+curl -X POST http://localhost:3000/api/users/999/active
 
 curl -X GET http://localhost:3000/api/users/1/active
 
