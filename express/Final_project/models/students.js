@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // Un estudiante pertenece a un profesor
       this.belongsTo(models.teachers, { foreignKey: 'teacher_id', as: 'teacher' });
     }
   }
@@ -19,7 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     date_of_birth: DataTypes.DATE,
-    teacher_id: DataTypes.INTEGER
+    teacher_id: {
+      type: DataTypes.INTEGER,   // Definición correcta del tipo de dato
+      allowNull: false,          // Asegura que no puede ser nulo
+      references: {
+        model: 'teachers',       // Relación con la tabla `teachers`
+        key: 'id',               // Relación con el campo `id` de `teachers`
+      },
+    },
   }, {
     sequelize,
     modelName: 'students',

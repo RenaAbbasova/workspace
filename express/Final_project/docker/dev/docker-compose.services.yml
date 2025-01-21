@@ -11,8 +11,8 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: express-project
+      POSTGRES_PASSWORD: 3008
+      POSTGRES_DB: express-db-rabbasova
     ports:
       - 5432:5432
     networks: 
@@ -22,7 +22,7 @@ services:
     depends_on:
       - express-db
     environment:
-      PGADMIN_DEFAULT_EMAIL: rena@local.host
+      PGADMIN_DEFAULT_EMAIL: rabbasova@local.host
       PGADMIN_DEFAULT_PASSWORD: password
       PGADMIN_LISTEN_PORT: 8080
     ports:

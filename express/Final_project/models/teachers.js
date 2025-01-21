@@ -20,10 +20,18 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     date_of_birth: DataTypes.DATE,
-    user_id: DataTypes.INTEGER
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'users', // referencia a la tabla `users`
+        key: 'id', // referencia al campo `id` de `users`
+      },
+    },
   }, {
     sequelize,
     modelName: 'teachers',
   });
+
   return teachers;
 };

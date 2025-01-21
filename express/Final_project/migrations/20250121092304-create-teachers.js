@@ -22,7 +22,14 @@ module.exports = {
         type: Sequelize.DATE
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'users', // la tabla de referencia
+          key: 'id',      // la columna de referencia
+        },
+        onUpdate: 'CASCADE',  // opcional: si se actualiza el `id` en `users`, actualizar el `user_id` en `teachers`
+        onDelete: 'SET NULL', // opcional: si se elimina un `user`, se pone a `NULL` el `user_id` en `teachers`
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +41,7 @@ module.exports = {
       }
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('teachers');
   }

@@ -6,6 +6,8 @@ sequelize init
 
 editamos config/config.js 
 
+// Estos comandos creara el modelo
+
 sequelize model:generate --name users --attributes email:string,password:string,type:string,active:boolean
 
 sequelize model:generate --name teachers --attributes dni:string,name:string,last_name:string,date_of_birth:date,user_id:integer
@@ -29,4 +31,87 @@ npm install bcrypt
 poblamos base de datos:
  despues:
 2. sequelize db:seed:all (si quieres borrar use: sequelize db:seed:undo:all)
- 
+
+
+
+
+post with curl:
+curl -X POST http://localhost:3000/api/users \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "test@example.com",
+  "password": "123456",
+  "type": "admin",
+  "active": true
+}'
+
+curl -X PUT http://localhost:3000/api/users/1 \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "updated@example.com",
+  "password": "newpassword",
+  "type": "user",
+  "active": false
+}'
+
+curl -X DELETE http://localhost:3000/api/users/1
+curl -X DELETE http://localhost:3000/api/users/4
+
+curl -X GET http://localhost:3000/api/users/1/active
+
+curl -X GET http://localhost:3000/api/teachers/1/students
+
+
+
+
+curl -X POST http://localhost:3000/api/teachers \
+-H "Content-Type: application/json" \
+-d '{
+  "dni": "12345678",
+  "name": "John",
+  "last_name": "Doe",
+  "date_of_birth": "1980-05-15",
+  "user_id": 1
+}'
+
+curl -X PUT http://localhost:3000/api/teachers/1 \
+-H "Content-Type: application/json" \
+-d '{
+  "dni": "87654321",
+  "name": "Jane",
+  "last_name": "Smith",
+  "date_of_birth": "1985-10-10",
+  "user_id": 2
+}'
+
+
+curl -X DELETE http://localhost:3000/api/teachers/1
+curl -X DELETE http://localhost:3000/api/teachers/4
+curl -X DELETE http://localhost:3000/api/teachers/3
+
+
+curl -X POST http://localhost:3000/api/students \
+-H "Content-Type: application/json" \
+-d '{
+  "dni": "987654321",
+  "name": "Bob",
+  "last_name": "Smith",
+  "date_of_birth": "2005-02-15",
+  "teacher_id": 1
+}'
+
+
+curl -X PUT http://localhost:3000/api/students/1 \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Robert",
+  "last_name": "Smith",
+  "dni": "987654322",
+  "date_of_birth": "2004-03-01",
+  "teacher_id": 2
+}'
+
+curl -X DELETE http://localhost:3000/api/students/1
+curl -X DELETE http://localhost:3000/api/students/6
+
+

@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "1234",
-    "database": "express-project",
+    "password": "3008",
+    "database": "express-db-rabbasova",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
