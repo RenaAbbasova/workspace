@@ -3,6 +3,8 @@ npm install
 npm install sequelize pg pg-hstore --save
 sudo npm install sequelize-cli -g
 sequelize init
+npm install express-session --save
+npm install mustache-express --save
 
 editamos config/config.js 
 
@@ -114,5 +116,15 @@ curl -X PUT http://localhost:3000/api/students/1 \
 
 curl -X DELETE http://localhost:3000/api/students/1
 curl -X DELETE http://localhost:3000/api/students/6
+
+## login
+http://localhost:3000/login
+
+** login user existente ** 
+username: admin@example.com
+password: admin123
+
+
+
 
 

@@ -3,6 +3,10 @@ const { users, teachers, students } = require('./models');
 const bcrypt = require('bcrypt');
 const app = express();
 const port = 3000;
+const mustacheExpress = require("mustache-express");
+const session = require("express-session"); // Para manejar sesiones
+const { User } = require("./models");
+
 
 app.use(express.json());
 
@@ -300,6 +304,118 @@ app.get('/api/users/:id/active', (req, res) => {
     res.status(500).send(err.message); // Handle any errors
   });
 });
+
+// Ejercicio 7 --------------
+
+//  Mustache egine of the views
+app.engine("html", mustacheExpress()); // Uso .html como extensión de las vistas
+app.set("view engine", "html"); // Motor de vistas será Mustache
+app.set("views", __dirname + "/views"); // Carpeta donde están las vistas
+
+// Serve static files (CSS, images, etc.)
+app.use(express.static(__dirname + "/public"));
+
+// Body parser middleware
+app.use(express.urlencoded({ extended: true }));
+
+// Endpoint GET /login
+app.get("/login", (req, res) => {
+  // Renderizo el archivo views/login.html
+  res.render("login", { message: "¡Bienvenido al login!" });
+});
+
+// Ejercicio 8 -----------------
+// Configurar middleware de sesiones
+app.use(session({
+  secret: 'ClaveSegura', // Cambia esto por una clave segura
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// Endpoint POST /login
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    // Buscar el usuario en la tabla "users" por email
+    const user = await users.findOne({ where: { email: username } });
+
+     // Si no existe el usuario, renderizar página de error
+    if (!user) {
+      return res.status(401).render("error-login", { message: "Usuario no encontrado" });
+    }
+
+    // Comparar la contraseña con la encriptación almacenada en la base de datos
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      // Si la contraseña no coincide, renderizar página de error
+      return res.status(401).render("error-login", { message: "Contraseña incorrecta" });
+    }
+
+    // Si la contraseña es válida, setear las variables de sesión
+    req.session.isLoggedIn = true; // El usuario está logueado
+    req.session.user = {
+      id: user.id,
+      email: user.email,
+      type: user.type,
+      active: user.active,
+      cookie: { secure: false }
+    };
+
+    // Redirigir a la página "home"
+    res.redirect('/home');
+  } catch (error) {
+    // Manejar errores
+    console.error('Error en POST /login:', error);
+    res.status(500).send('Error interno del servidor');
+  }
+});
+
+// Ejercicio 9
+// Middleware de autenticación para proteger el endpoint
+function isAdmin(req, res, next) {
+  if (req.session.user && req.session.user.type === 'admin') {
+    return next();
+  }
+  return res.status(401).send('No autorizado');
+}
+
+// Endpoint GET /users
+app.get('/users', isAdmin, async (req, res) => {
+  try {
+    // Obtener todos los usuarios (excluyendo contraseñas)
+    const users = await User.findAll({
+      attributes: { exclude: ['password'] } // Excluir el campo de contraseña
+    });
+
+    // Renderizar la vista 'users.html' con los usuarios
+    res.render('users', { users });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error en el servidor');
+  }
+});
+
+// Endpoint POST /logout para eliminar sesión
+app.post('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send('No se pudo cerrar sesión');
+    }
+    res.redirect('/login');
+  });
+});
+
+// prueba
+app.get('/home', (req, res) => {
+  if (req.session.user) {
+    res.render('home', { user: req.session.user });
+  } else {
+    res.redirect('/login');
+  }
+});
+
 
 // Server listening
 app.listen(port, () => {
