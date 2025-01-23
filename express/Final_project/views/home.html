@@ -1,13 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="/homestyle.css">
 </head>
 <body>
-    <h1>Bienvenido, <%= user.name %></h1>
-    <p>Tu email es: <%= user.email %></p>
+    <h1>Welcome, {{user.email}}</h1>
+
+    <h2>Teacher Information</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>DNI</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{teacher.name}}</td>
+                <td>{{teacher.last_name}}</td>
+                <td>{{teacher.dni}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
 </body>
 </html>
+

@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/homestyle.css">
 </head>
 <body>
-    <h1>Lista de Usuarios</h1>
+    <h2>User List</h2>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Email</th>
-                <th>Tipo</th>
-                <th>Activo</th>
+                <th>type</th>
+                <th>Active</th>
             </tr>
         </thead>
         <tbody>
-            <% users.forEach(user => { %>
+            {{#users}}
                 <tr>
-                    <td><%= user.id %></td>
-                    <td><%= user.email %></td>
-                    <td><%= user.type %></td>
-                    <td><%= user.active %></td>
+                    <td>{{id}}</td>
+                    <td>{{email}}</td>
+                    <td>{{type}}</td>
+                    <td>{{#active}}Yes{{/active}}{{^active}}No{{/active}}</td>
                 </tr>
-            <% }); %>
+            {{/users}}
         </tbody>
     </table>
 

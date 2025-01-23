@@ -124,7 +124,25 @@ http://localhost:3000/login
 username: admin@example.com
 password: admin123
 
+testing:
+logear como admin
+
+curl -X POST http://localhost:3000/login \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "username=admin@example.com&password=admin123"
+
+curl -X GET http://localhost:3000/users --cookie "connect.sid=<SESSION_ID>"
+
+curl -X GET http://localhost:3000/home --cookie "connect.sid=<SESSION_ID>"
 
 
+curl -X POST http://localhost:3000/logout --cookie "connect.sid=<SESSION_ID>"
 
+
+Este comando guarda la cookie en un archivo llamado cookies.txt.:
+
+curl -X POST http://localhost:3000/login \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "username=admin@example.com&password=admin123" \
+-c cookies.txt
 

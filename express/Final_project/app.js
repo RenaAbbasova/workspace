@@ -5,10 +5,13 @@ const app = express();
 const port = 3000;
 const mustacheExpress = require("mustache-express");
 const session = require("express-session"); // Para manejar sesiones
-const { User } = require("./models");
+const isAdmin = require('./middleware/isAdmin'); // isAdmin middleware
+const isAuthenticated = require('./middleware/isAuthenticated');
+const logger = require('./middleware/logger');
 
 
 app.use(express.json());
+app.use(logger);
 
 // Welcome route
 app.get('/api', (req, res) => {
@@ -329,7 +332,8 @@ app.get("/login", (req, res) => {
 app.use(session({
   secret: 'ClaveSegura', // Cambia esto por una clave segura
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
+  cookie: { secure: false } 
 }));
 
 // Endpoint POST /login
@@ -354,7 +358,7 @@ app.post('/login', async (req, res) => {
     }
 
     // Si la contraseña es válida, setear las variables de sesión
-    req.session.isLoggedIn = true; // El usuario está logueado
+    req.session.loggedIn = true;// El usuario está logueado
     req.session.user = {
       id: user.id,
       email: user.email,
@@ -373,30 +377,87 @@ app.post('/login', async (req, res) => {
 });
 
 // Ejercicio 9
-// Middleware de autenticación para proteger el endpoint
-function isAdmin(req, res, next) {
-  if (req.session.user && req.session.user.type === 'admin') {
-    return next();
-  }
-  return res.status(401).send('No autorizado');
-}
 
-// Endpoint GET /users
+// Endpoint GET /users - list all the users (only by admin)
 app.get('/users', isAdmin, async (req, res) => {
   try {
     // Obtener todos los usuarios (excluyendo contraseñas)
-    const users = await User.findAll({
-      attributes: { exclude: ['password'] } // Excluir el campo de contraseña
+    const userList = await users.findAll({
+      attributes: { exclude: ['password'] },
+      raw: true // This should return plain objects instead of Sequelize instances
     });
 
+    // Log the fetched data for debugging
+    console.log('Fetched Users:', userList);
+
+    if (!userList || userList.length === 0) {
+      console.error('No users found.');
+      return res.status(404).send('No hay usuarios para mostrar.');
+    }
+
     // Renderizar la vista 'users.html' con los usuarios
-    res.render('users', { users });
+    res.render('users', { users: userList });
   } catch (error) {
     console.error(error);
     res.status(500).send('Error en el servidor');
   }
 });
 
+
+
+// Ejercicio 10
+// Endpoint GET /home
+/* app.get('/home', isAuthenticated, async (req, res) => {
+  try {
+    if (req.session.user.type === 'admin') {
+      return res.redirect('/users');
+    }
+
+    const teacher = await teachers.findOne({
+      where: { user_id: req.session.user.id }
+    });
+
+    if (!teacher) {
+      return res.status(404).send('No se encontró información del profesor asociado.');
+    }
+
+    res.render('home', { user: req.session.user, teacher }); // Renderizar vista home.html
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error en el servidor');
+  }
+});
+ */
+
+// Endpoint GET /home
+app.get('/home', isAuthenticated, async (req, res) => {
+  try {
+    console.log('User session:', req.session.user); // Log user data
+
+    if (req.session.user.type === 'admin') {
+      console.log('Admin user detected, redirecting to /users');
+      return res.redirect('/users');
+    }
+
+    const teacher = await teachers.findOne({
+      where: { user_id: req.session.user.id }
+    });
+
+    if (!teacher) {
+      console.log('No teacher found for user:', req.session.user.id);
+      return res.status(404).send('No se encontró información del profesor asociado.');
+    }
+
+    console.log('Teacher found:', teacher); // Log teacher data
+
+    res.render('home', { user: req.session.user, teacher }); // Renderizar vista home.html
+  } catch (error) {
+    console.error('Error in GET /home:', error);
+    res.status(500).send('Error en el servidor');
+  }
+});
+
+// Ejercicio 11
 // Endpoint POST /logout para eliminar sesión
 app.post('/logout', (req, res) => {
   req.session.destroy((err) => {
@@ -407,14 +468,9 @@ app.post('/logout', (req, res) => {
   });
 });
 
-// prueba
-app.get('/home', (req, res) => {
-  if (req.session.user) {
-    res.render('home', { user: req.session.user });
-  } else {
-    res.redirect('/login');
-  }
-});
+// Ejercicio 12
+
+
 
 
 // Server listening
