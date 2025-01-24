@@ -28,9 +28,28 @@
         </tbody>
     </table>
 
+    <h3>Students Associated with This Teacher</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>DNI</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#students}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{last_name}}</td>
+                <td>{{dni}}</td>
+            </tr>
+            {{/students}}
+        </tbody>
+    </table>
+
     <form action="/logout" method="POST">
         <button type="submit">Logout</button>
     </form>
 </body>
 </html>
-

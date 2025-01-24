@@ -8,7 +8,7 @@ const session = require("express-session"); // Para manejar sesiones
 const isAdmin = require('./middleware/isAdmin'); // isAdmin middleware
 const isAuthenticated = require('./middleware/isAuthenticated');
 const logger = require('./middleware/logger');
-
+const jwt = require('jsonwebtoken');
 
 app.use(express.json());
 app.use(logger);
@@ -403,34 +403,9 @@ app.get('/users', isAdmin, async (req, res) => {
   }
 });
 
-
-
-// Ejercicio 10
+// ejercicio 10 -valido
 // Endpoint GET /home
 /* app.get('/home', isAuthenticated, async (req, res) => {
-  try {
-    if (req.session.user.type === 'admin') {
-      return res.redirect('/users');
-    }
-
-    const teacher = await teachers.findOne({
-      where: { user_id: req.session.user.id }
-    });
-
-    if (!teacher) {
-      return res.status(404).send('No se encontró información del profesor asociado.');
-    }
-
-    res.render('home', { user: req.session.user, teacher }); // Renderizar vista home.html
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error en el servidor');
-  }
-});
- */
-
-// Endpoint GET /home
-app.get('/home', isAuthenticated, async (req, res) => {
   try {
     console.log('User session:', req.session.user); // Log user data
 
@@ -455,7 +430,51 @@ app.get('/home', isAuthenticated, async (req, res) => {
     console.error('Error in GET /home:', error);
     res.status(500).send('Error en el servidor');
   }
+}); */
+
+
+// Endpoint GET /home
+app.get('/home', isAuthenticated, async (req, res) => {
+  try {
+    console.log('User session:', req.session.user); // Log user data
+
+    if (req.session.user.type === 'admin') {
+      console.log('Admin user detected, redirecting to /users');
+      return res.redirect('/users');
+    }
+
+    // Fetch teacher associated with the current logged-in user
+    const teacher = await teachers.findOne({
+      where: { user_id: req.session.user.id }
+    });
+
+    if (!teacher) {
+      console.log('No teacher found for user:', req.session.user.id);
+      return res.status(404).send('No se encontró información del profesor asociado.');
+    }
+
+    console.log('Teacher found:', teacher); // Log teacher data
+
+    // Fetch all students associated with the teacher
+    const studentsList = await students.findAll({
+      where: { teacher_id: teacher.id },
+      order: [['date_of_birth', 'ASC']]  // Sorting students by their date of birth
+    });
+
+    // Render the home view and pass teacher and students data
+    res.render('home', { 
+      user: req.session.user, 
+      teacher: teacher,
+      students: studentsList // Pass the students list to the view
+    });
+
+  } catch (error) {
+    console.error('Error in GET /home:', error);
+    res.status(500).send('Error en el servidor');
+  }
 });
+
+
 
 // Ejercicio 11
 // Endpoint POST /logout para eliminar sesión
@@ -470,6 +489,76 @@ app.post('/logout', (req, res) => {
 
 // Ejercicio 12
 
+const JWT_SECRET = "ClaveMegaSecreta";
+
+// POST to generate JWT token
+app.post("/api/token", async (req, res) => {
+  try {
+    // Find the user by email (username)
+    const user = await users.findOne({ where: { email: req.body.username } });
+    
+    if (user) {
+      // Validate the provided password
+      const isValidPassword = await bcrypt.compare(req.body.password, user.password);
+      if (isValidPassword) {
+        // Generate JWT token with 15-minute expiration
+        const token = jwt.sign({ username: user.email }, JWT_SECRET, { expiresIn: "15m" });
+        return res.json({ token }); // Return the token as JSON
+      } else {
+        return res.status(401).json({ message: "Invalid username or password" }); // Invalid password
+      }
+    } else {
+      return res.status(401).json({ message: "Invalid username or password" }); // User not found
+    }
+  } catch (error) {
+    return res.status(500).json({ message: error.message }); // Internal error
+  }
+});
+
+// Middleware to verify token and extract data
+const isAuth = (req, res, next) => {
+  const authorization = req.headers.authorization;
+  if (!authorization) {
+    return res.status(401).json({ message: "Authorization Header missing" });
+  }
+
+  const token = authorization.split(" ")[1]; // Get token from Authorization header
+
+  try {
+    const jwtData = jwt.verify(token, JWT_SECRET); // Verify the token
+    req.data = jwtData;  // Attach decoded token data to the request object
+    next();  // Continue to the next middleware or route handler
+  } catch (error) {
+    return res.status(401).json({ message: "Invalid Token." }); // Token verification failed
+  }
+};
+
+// Protected route: GET /jwt (requires valid token)
+app.get("/jwt", isAuth, (req, res) => {
+  res.json({ message: "You are authenticated!", data: req.data });  // Return token data
+});
+
+app.get("/auth/users", isAuth, async (req, res) => {
+  try {
+    const user = await users.findOne({ where: { email: req.data.username } });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({
+      message: "Authorized",
+      user: {
+        id: user.id,
+        email: user.email,
+        type: user.type,
+        active: user.active
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
 
 
 

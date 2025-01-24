@@ -7,22 +7,32 @@ module.exports = {
      await queryInterface.bulkInsert('teachers', [
       {
         dni: 'T12345678',
-        name: 'John',
-        last_name: 'Doe',
+        name: 'Maria',
+        last_name: 'Perez',
         date_of_birth: new Date('1985-04-12'),
-        user_id: 1, // Assuming user with ID 1 exists
+        user_id: 1, 
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         dni: 'T87654321',
-        name: 'Jane',
-        last_name: 'Smith',
+        name: 'Iker',
+        last_name: 'Marco',
         date_of_birth: new Date('1988-07-22'),
-        user_id: 2, // Assuming user with ID 2 exists
+        user_id: 2, 
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        dni: 'T85596329',
+        name: 'Gordon',
+        last_name: 'Smith',
+        date_of_birth: new Date('1988-07-22'),
+        user_id: 3, 
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      
     ]);
   },
 

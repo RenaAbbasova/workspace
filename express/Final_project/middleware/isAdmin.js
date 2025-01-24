@@ -3,7 +3,7 @@ function isAdmin(req, res, next) {
     if (req.session.user && req.session.user.type === 'admin') {
       return next();
     }
-    res.redirect('/login');
+    res.status(401).send('No autorizado');
   }
 
 module.exports = isAdmin ;  

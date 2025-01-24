@@ -146,6 +146,9 @@ app.get("/jwt", isAuth, (req, res) => {
   });
 
 
+  
+
+
 // Creo el servidor en el puerto ${port}
 app.listen(port, () => {
   // Se escribe la URL para el acceso al servidor
