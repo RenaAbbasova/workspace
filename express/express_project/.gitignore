@@ -1,0 +1,14 @@
+# Node.js dependencies
+node_modules/
+
+# Log files
+*.log
+
+# Environment files (if any)
+.env
+
+# OS files
+.DS_Store
+
+# Temporary files
+*.swp
