@@ -68,18 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-
-mis apuntes:
-
-# installment:
-npm install eslint --save-dev
-
-
-npx create-react-app my-app
-cd my-app
-npm start
-
-herramienta to convert html to JSX:
-https://transform.tools/html-to-jsx

@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "my-timer-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,8 +32,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint": "^8.57.1"
   }
 }
