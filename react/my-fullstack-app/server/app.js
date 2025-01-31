@@ -7,11 +7,22 @@ const mustacheExpress = require("mustache-express");
 const session = require("express-session"); // Para manejar sesiones
 const isAdmin = require('./middleware/isAdmin'); // isAdmin middleware
 const isAuthenticated = require('./middleware/isAuthenticated');
-const logger = require('./middleware/logger');
+const db = require("./db")
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
+const cors = require("cors")
+const { Pool } = require("pg")
 app.use(express.json());
-app.use(logger);
+
+
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+})
 
 // Welcome route
 app.get('/api', (req, res) => {
@@ -403,34 +414,7 @@ app.get('/users', isAdmin, async (req, res) => {
   }
 });
 
-// ejercicio 10 -valido
-// Endpoint GET /home
-/* app.get('/home', isAuthenticated, async (req, res) => {
-  try {
-    console.log('User session:', req.session.user); // Log user data
 
-    if (req.session.user.type === 'admin') {
-      console.log('Admin user detected, redirecting to /users');
-      return res.redirect('/users');
-    }
-
-    const teacher = await teachers.findOne({
-      where: { user_id: req.session.user.id }
-    });
-
-    if (!teacher) {
-      console.log('No teacher found for user:', req.session.user.id);
-      return res.status(404).send('No se encontró información del profesor asociado.');
-    }
-
-    console.log('Teacher found:', teacher); // Log teacher data
-
-    res.render('home', { user: req.session.user, teacher }); // Renderizar vista home.html
-  } catch (error) {
-    console.error('Error in GET /home:', error);
-    res.status(500).send('Error en el servidor');
-  }
-}); */
 
 
 // Endpoint GET /home
@@ -558,9 +542,42 @@ app.get("/auth/users", isAuth, async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
   }
+}); 
+
+//api login
+// Login route
+app.post("/api/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    // Check if user exists
+    const userResult = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
+    
+    if (userResult.rows.length === 0) {
+      return res.status(401).json({ error: "Invalid username or password" });
+    }
+
+    const user = userResult.rows[0];
+
+    // Check password
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+      return res.status(401).json({ error: "Invalid username or password" });
+    }
+
+    // Generate JWT
+    const token = jwt.sign(
+      { userId: user.id, username: user.username },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    res.json({ token });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
-
-
 
 
 // Server listening

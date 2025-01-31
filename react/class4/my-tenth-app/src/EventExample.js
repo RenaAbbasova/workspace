@@ -30,8 +30,7 @@ class EventExample extends React.Component {
 
   render() {
     const id = 10; 
-    const { isLoggedIn } = this.state; // Obtenemos los estados de isLoggedIn y showWarning
-
+    const { isLoggedIn } = this.state; // Obtenemos los estados de isLoggedIn 
     return (
       <>
          {/* Pasamos la prop "warn" al componente Warning */}
