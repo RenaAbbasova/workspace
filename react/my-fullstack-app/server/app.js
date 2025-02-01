@@ -10,10 +10,11 @@ const isAuthenticated = require('./middleware/isAuthenticated');
 const db = require("./db")
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-
 const cors = require("cors")
 const { Pool } = require("pg")
+
 app.use(express.json());
+app.use(cors())
 
 
 const pool = new Pool({
@@ -551,10 +552,10 @@ app.post("/api/login", async (req, res) => {
 
   try {
     // Check if user exists
-    const userResult = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
+    const userResult = await pool.query("SELECT * FROM users WHERE email = $1", [username])
     
     if (userResult.rows.length === 0) {
-      return res.status(401).json({ error: "Invalid username or password" });
+      return res.status(401).json({ error: "Invalid email or password" });
     }
 
     const user = userResult.rows[0];
@@ -562,12 +563,12 @@ app.post("/api/login", async (req, res) => {
     // Check password
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return res.status(401).json({ error: "Invalid username or password" });
+      return res.status(401).json({ error: "Invalid email or password" });
     }
 
     // Generate JWT
     const token = jwt.sign(
-      { userId: user.id, username: user.username },
+      { userId: user.id, email: user.email },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
