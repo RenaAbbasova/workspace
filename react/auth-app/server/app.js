@@ -13,18 +13,14 @@ const teacherRoutes = require("./routes/teachers");
 const studentRoutes = require("./routes/students");
 const authRoutes = require("./routes/auth");
 
+
+
+
+
 // Creo la aplicación Express
 const app = express();
 // Declaro el puerto de escucha
 const port = 1443;
-
-//app.use(cors());
-app.use(
-  cors({
-    origin: "http://localhost:5173", // Allow frontend requests (Change to your domain in production)
-    credentials: true, // Allow cookies & sessions if needed
-  })
-);
 
 // Middlewares
 app.use(express.json());
@@ -38,6 +34,11 @@ app.use(
   })
 );
 
+app.use(cors());
+/* app.use(cors({
+  origin: 'https://localhost:5173', // or your Vite dev server port
+  credentials: true
+})); */ 
 
 
 // Mustache
