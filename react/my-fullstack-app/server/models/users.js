@@ -1,8 +1,5 @@
-// users.js
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class users extends Model {
     /**
@@ -12,17 +9,28 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasOne(models.teachers, { foreignKey: 'user_id', as: 'teacher' })
     }
   }
-  users.init({
-    email: { type: DataTypes.STRING, unique: true, allowNull: false },
-    password: { type: DataTypes.STRING, allowNull: false },
-    type: DataTypes.STRING,
-    active: { type: DataTypes.BOOLEAN, defaultValue: true }, 
-  }, {
-    sequelize,
-    modelName: 'users',
-  });
+  users.init(
+    {
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+      type: DataTypes.STRING,
+      active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+      }
+    },
+    {
+      sequelize,
+      modelName: "users",
+    }
+  );
+  users.associate = function (models) {
+    users.hasOne(models.teachers, {
+      foreignKey: "user_id",
+      as: "teacher",
+    });
+  };
   return users;
 };

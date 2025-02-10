@@ -1,37 +1,42 @@
+<!-- views/user.html -->
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
-    <link rel="stylesheet" href="/view.css">
-</head>
-<body>
-    <h2>User List</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>type</th>
-                <th>Active</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#users}}
-                <tr>
-                    <td>{{id}}</td>
-                    <td>{{email}}</td>
-                    <td>{{type}}</td>
-                    <td>{{#active}}Yes{{/active}}{{^active}}No{{/active}}</td>
-                </tr>
-            {{/users}}
-        </tbody>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <table border="1" >
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Type</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#users}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{email}}</td>
+        <td>{{type}}</td>
+        <td>{{active}}</td>
+      </tr>
+      {{/users}}
+    </tbody>
     </table>
-
-    <form action="/logout" method="POST">
-        <button type="submit">Logout</button>
+    <br>
+    <br>
+    <form method="get" action="{{originalUrl}}">
+      <input type="submit" value="Back" />
     </form>
-</body>
+    <br>
+    <form method="post" action="/logout">
+      <input type="submit" value="Logout" />
+    </form>
+  </body>
 </html>
-

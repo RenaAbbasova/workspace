@@ -3,17 +3,31 @@ import PropTypes from 'prop-types';
 import './Login.css';
 
 async function loginUser(credentials) {
- return fetch('http://localhost:1443/login', {
+  const res = await fetch('http://localhost:1443/login', {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json'
    },
    body: JSON.stringify(credentials)
  })
-   .then(data => data.json())
+
+  if (!res.ok) {
+    throw new Error(`Failed logging in`)
+  }
+
+  const res2 = await fetch(`http://localhost:1443/token`, {
+    method: 'POST',
+    headers: {
+     'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+
+  const { token } = await res2.json()
+  return token
 }
 
-export default function Login({ setToken }) {
+export default function Login() {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
@@ -23,7 +37,9 @@ export default function Login({ setToken }) {
       username,
       password
     });
-    setToken(token);
+
+    // setToken()
+    localStorage.setItem('token', token)
   }
 
   return(
@@ -44,8 +60,10 @@ export default function Login({ setToken }) {
       </form>
     </div>
   )
-}
+} 
 
-Login.propTypes = {
+/* Login.propTypes = {
   setToken: PropTypes.func.isRequired
-};
+ }; */
+
+

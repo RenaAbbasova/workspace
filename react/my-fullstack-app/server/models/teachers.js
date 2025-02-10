@@ -11,8 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.users, { foreignKey: 'user_id', as: 'user' });
-      this.hasMany(models.students, { foreignKey: 'teacher_id', as: 'students' });
     }
   }
   teachers.init({
@@ -20,18 +18,20 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     date_of_birth: DataTypes.DATE,
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'users', // referencia a la tabla `users`
-        key: 'id', // referencia al campo `id` de `users`
-      },
-    },
+    user_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'teachers',
   });
-
+  teachers.associate = function(models) {
+    teachers.belongsTo(models.users, {
+      foreignKey: 'user_id',
+      as: 'user'
+    });
+    teachers.hasMany(models.students, {
+      foreignKey: 'teacher_id',
+      as: 'students'
+    });
+  };
   return teachers;
 };

@@ -13,10 +13,6 @@ const teacherRoutes = require("./routes/teachers");
 const studentRoutes = require("./routes/students");
 const authRoutes = require("./routes/auth");
 
-
-
-
-
 // Creo la aplicación Express
 const app = express();
 // Declaro el puerto de escucha
@@ -26,6 +22,11 @@ const port = 1443;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+  console.log(`The server heard a request: ${req.method} @ ${req.url}`)
+  next()
+})
+
 app.use(
   session({
     secret: "ClaveUltraSecretadeSesion",
@@ -34,19 +35,26 @@ app.use(
   })
 );
 
-app.use(cors());
-/* app.use(cors({
-  origin: 'https://localhost:5173', // or your Vite dev server port
-  credentials: true
-})); */ 
-
-
+//app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Change to your frontend URL
+    methods: "GET, POST, OPTIONS",
+    allowedHeaders: "Content-Type, Authorization",
+  })
+);
+app.get("/", (req, res) => {
+  res.send("The server works!")
+})
 // Mustache
 app.engine("html", mustacheExpress());
 app.set("view engine", "html");
 app.set("views", __dirname + "/views");
 
-app.use("/api/*", isAuth);
+// localhost:1443/about.html
+
+// app.use("/api/*", isAuth);
+
 
 // Routes API
 app.use("/api/user", userRoutes);
@@ -62,14 +70,14 @@ app.use(userFrontRoutes);
 app.get("/home", homeRoutes);
 
 // Creo el servidor en el puerto ${port}
-https
-  .createServer(
-    {
-      cert: fs.readFileSync("./certs/expressproject.crt"),
-      key: fs.readFileSync("./certs/expressproject.key"),
-    },
-    app
-  )
-  .listen(port, function () {
-    console.log(`Example server listening on https://localhost:${port}`);
+// https
+//   .createServer(
+//     {
+//       cert: fs.readFileSync("./certs/expressproject.crt"),
+//       key: fs.readFileSync("./certs/expressproject.key"),
+//     },
+//     app
+//   )
+  app.listen(port, function () {
+    console.log(`Example server listening on http://localhost:${port}`);
   });
