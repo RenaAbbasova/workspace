@@ -1,0 +1,33 @@
+/* Estilos generales */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 10%;
+    background-color: #91a4c5; /* bg-gray-800 */
+    color: white;
+    padding: 16px;
+  }
+  
+  /* Lista del menú */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    font-size: 2rem; /* Letras más grandes */
+    font-weight: bold; /* Negrita para más impacto */
+    text-transform: lowercase; /* Convertir a mayúsculas */
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar li:hover {
+    color: #a0aec0; /* hover:text-gray-400 */
+  }
+  
