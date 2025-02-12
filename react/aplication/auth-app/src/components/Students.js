@@ -55,7 +55,7 @@ function Students() {
               <th className="py-2 px-4 border-b">Name</th>
               <th className="py-2 px-4 border-b">Last Name</th>
               <th className="py-2 px-4 border-b">Date of Birth</th>
-              <th className="py-2 px-4 border-b">Teacher ID</th>
+              {/* <th className="py-2 px-4 border-b">Teacher ID</th> */}
               <th className="py-2 px-4 border-b">Created At</th>
               <th className="py-2 px-4 border-b">Updated At</th>
             </tr>
@@ -68,7 +68,7 @@ function Students() {
                 <td className="py-2 px-4 border-b">{student.name}</td>
                 <td className="py-2 px-4 border-b">{student.last_name}</td>
                 <td className="py-2 px-4 border-b">{new Date(student.date_of_birth).toLocaleDateString()}</td>
-                <td className="py-2 px-4 border-b">{student.teacher_id}</td>
+                {/* <td className="py-2 px-4 border-b">{student.teacher_id}</td> */}
                 <td className="py-2 px-4 border-b">{new Date(student.createdAt).toLocaleString()}</td>
                 <td className="py-2 px-4 border-b">{new Date(student.updatedAt).toLocaleString()}</td>
               </tr>

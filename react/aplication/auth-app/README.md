@@ -126,3 +126,6 @@ credentials: true, // Enable if using cookies/sessions
 `src/index.js`
 
 npm start
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
