@@ -123,6 +123,8 @@ const remove = async (req, res) => {
   }
 };
 
+
+
 module.exports = {
   getAll,
   getById,
@@ -130,4 +132,5 @@ module.exports = {
   update,
   remove,
   getStudents,
+  
 };

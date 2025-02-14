@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import "../styles/Login.css"
 
 
@@ -34,7 +34,7 @@ function Login() {
   }
 
   
-  return (
+  /* return (
     <div className="login-container">
       <h3>Login to your account</h3>
       <form onSubmit={handleSubmit}>
@@ -68,6 +68,36 @@ function Login() {
       </form>
     </div>
   )
+}
+
+export default Login */
+
+return (
+  <div className="login-container">
+    <form onSubmit={handleSubmit} className="login-form">
+      <h2>Login</h2>
+      {error && <p className="error">{error}</p>}
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p className="signup-link">
+      Don't have an account? <Link to="/signup">Sign up</Link>
+    </p>
+  </div>
+)
 }
 
 export default Login
