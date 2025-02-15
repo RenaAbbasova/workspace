@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { signup } from "../api"
@@ -9,7 +7,10 @@ function Signup() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    type: "teacher", // Default to teacher, can be changed if needed
+    dni: "",
+    name: "",
+    last_name: "",
+    date_of_birth: "",
   })
   const [error, setError] = useState("")
   const navigate = useNavigate()
@@ -27,8 +28,8 @@ function Signup() {
     setError("")
 
     try {
-      await signup(formData)
-      console.log("Signup successful")
+      const response = await signup(formData)
+      console.log("Signup successful:", response)
       navigate("/login")
     } catch (error) {
       console.error("Error during signup:", error)
@@ -57,11 +58,34 @@ function Signup() {
           />
         </div>
         <div>
-          <label htmlFor="type">User Type:</label>
-          <select id="type" name="type" value={formData.type} onChange={handleChange} required>
-            <option value="teacher">Teacher</option>
-            <option value="admin">Admin</option>
-          </select>
+          <label htmlFor="dni">DNI:</label>
+          <input type="text" id="dni" name="dni" value={formData.dni} onChange={handleChange} required />
+        </div>
+        <div>
+          <label htmlFor="name">First Name:</label>
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+        </div>
+        <div>
+          <label htmlFor="last_name">Last Name:</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            value={formData.last_name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="date_of_birth">Date of Birth:</label>
+          <input
+            type="date"
+            id="date_of_birth"
+            name="date_of_birth"
+            value={formData.date_of_birth}
+            onChange={handleChange}
+            required
+          />
         </div>
         <button type="submit">Sign Up</button>
       </form>
@@ -73,6 +97,8 @@ function Signup() {
 }
 
 export default Signup
+
+
 
 
 

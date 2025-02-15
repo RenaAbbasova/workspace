@@ -47,7 +47,37 @@ export async function getStudents(teacherId) {
 
 export async function createStudent(teacherId, studentData) {
   return apiRequest(`/api/teacher/${teacherId}/students`, "POST", studentData);
-}
+} 
+
+  /* export async function createStudent(teacherId, studentData) {
+    try {
+      const response = await fetch(`http://localhost:1443/api/teacher/${teacherId}/students`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(studentData),
+      });
+  
+      const contentType = response.headers.get("content-type");
+      if (!response.ok) {
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
+        } else {
+          throw new Error(`Unexpected response format: ${response.statusText}`);
+        }
+      }
+  
+      return await response.json();
+    } catch (error) {
+      console.error("Error in createStudent:", error);
+      throw error;
+    }
+  } */
+  
+
 
 export async function updateStudent(teacherId, studentId, updates) {
   return apiRequest(`/api/teacher/${teacherId}/students`, "PUT", { studentId, ...updates });
@@ -57,7 +87,6 @@ export async function deleteStudent(teacherId, studentId) {
   return apiRequest(`/api/teacher/${teacherId}/students/${studentId}`, "DELETE");
 }
 
-  
   // Authentication function
   export async function login(username, password) {
     const response = await fetch("http://localhost:1443/token", {
