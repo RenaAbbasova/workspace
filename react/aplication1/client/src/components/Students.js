@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { jwtDecode } from "jwt-decode"
-import { getStudents, deleteStudent } from "../api"
+import { getStudents, deleteStudent } from "../api/studentApi"
 import AddStudentForm from "./AddStudentForm"
 
 function Students() {
@@ -101,7 +101,10 @@ function Students() {
   )
 }
 
-export default Students
+export default Students 
+
+
+
 
 
 

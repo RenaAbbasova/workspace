@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createStudent } from "../api"
+import { createStudent } from "../api/studentApi"
 
 function AddStudentForm({ teacherId, onStudentAdded }) {
   const [formData, setFormData] = useState({
@@ -111,7 +111,11 @@ function AddStudentForm({ teacherId, onStudentAdded }) {
   )
 }
 
-export default AddStudentForm
+export default AddStudentForm 
+
+
+
+
 
 
 
