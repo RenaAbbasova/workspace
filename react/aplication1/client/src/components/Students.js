@@ -23,7 +23,7 @@ function Students() {
         setTeacherId(teacherId)
 
         const data = await getStudents(teacherId)
-        setStudents(data)
+        setStudents(data) 
       } catch (error) {
         console.error("Error fetching students:", error)
         setError("An error occurred while fetching students")
@@ -34,17 +34,18 @@ function Students() {
   }, [])
 
   const handleDeleteStudent = async (studentId) => {
+    console.log("Student ID to delete:", studentId);  // Log the ID being passed to the function
     if (window.confirm("Are you sure you want to delete this student?")) {
       try {
-        await deleteStudent(teacherId, studentId)
-        setStudents((prevStudents) => prevStudents.filter((student) => student.id !== studentId))
+        await deleteStudent(studentId, teacherId);  // Pass the correct teacherId
+        setStudents((prevStudents) => prevStudents.filter((student) => student.id !== studentId));
       } catch (error) {
-        console.error("Error deleting student:", error)
-        setError("An error occurred while deleting the student")
+        console.error("Error deleting student:", error);  // Adjusted error log
+        setError("An error occurred while deleting the student");
       }
     }
-  }
-
+  };
+  
   const handleStudentAdded = (newStudent) => {
     setStudents((prevStudents) => [...prevStudents, newStudent])
     setShowAddForm(false)
@@ -86,7 +87,7 @@ function Students() {
                 <td className="py-2 px-4 border-b">{new Date(student.date_of_birth).toLocaleDateString()}</td>
                 <td className="py-2 px-4 border-b">
                   <button
-                    onClick={() => handleDeleteStudent(student.id)}
+                    onClick={() => handleDeleteStudent(student.id)}  // Correctly pass student.id here
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
                   >
                     Delete
@@ -101,7 +102,11 @@ function Students() {
   )
 }
 
-export default Students 
+export default Students  
+
+
+
+
 
 
 

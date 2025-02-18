@@ -1,8 +1,6 @@
 // Se carga el módulo de Express
 const express = require("express");
 const mustacheExpress = require("mustache-express");
-const fs = require("fs");
-const https = require("https");
 const session = require("express-session");
 const cors = require("cors");
 const { isAuth, isAdmin } = require("./middlewares/auth");
@@ -54,7 +52,7 @@ app.set("views", __dirname + "/views");
 
 // localhost:1443/about.html
 
-// app.use("/api/*", isAuth);
+app.use("/api/*", isAuth);
 
 
 // Routes API

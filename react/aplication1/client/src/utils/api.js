@@ -18,7 +18,7 @@ export async function apiRequest(url, method = "GET", body = null) {
       throw new Error(`API request failed: ${response.statusText}`)
     }
     return response.json()
-  }
+  } 
 
 
 
