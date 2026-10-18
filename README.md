@@ -10,7 +10,7 @@ some exercise material come from the course template; the solutions and projects
 |---|---|
 | `introduccion-programacion` | Introduction to programming |
 | `core-javascript` | The foundations of the language |
-| `html` | HTML and CSS, including the **final project of the module** |
+| `html` | HTML and CSS exercises (the final project moved to its own repository) |
 | `networking` | The border between frontend and backend (course notes) |
 | `core-node` | Node.js for the server |
 | `express` | Web services with Express, the backend library |
@@ -20,8 +20,9 @@ some exercise material come from the course template; the solutions and projects
 
 ## Final HTML and CSS project
 
-[`html/ProyectoFinal_HTML_CSS`](html/ProyectoFinal_HTML_CSS): a website for a friend's actor-representation business, with a home page,
-about page, actors, casting profiles, a contact form, a login and a WhatsApp button.
+The final project of the HTML and CSS module (a website for a friend's actor-representation business) now lives in its own repository, rebuilt:
+**[Actor_Agency_Website](https://github.com/RenaAbbasova/Actor_Agency_Website)** ([live demo](https://renaabbasova.github.io/Actor_Agency_Website/)).
+Its README lists what changed from the course version, which is still in this repository's git history.
 
 ## Other work from the same program
 
